@@ -1,6 +1,6 @@
 Anchors reveal
 ==============
-* Firefox addon to show anchors in a web page. * Its main use is to help [a lazy blog redactor](http://dascritch.net) for rapidly linking to a relevant chapter in a long web page.
+  ** Firefox addon to show anchors in a web page. ** Its main use is to help [a lazy blog redactor](http://dascritch.net) for rapidly linking to a relevant chapter in a long web page.
 
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
@@ -45,10 +45,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
-* June 2014 : 0.1 , first version. Standalone JS and Firefox Addon
+* June 2014 : 0.1 , first release. Standalone JS and Firefox Addon
 
 Keeping in touch
 ----------------
-* professional <http://dascritch.com>
-* blog <http://dascritch.net>
+* professional : <http://dascritch.com>
+* blog : <http://dascritch.net>
 * twitter : [@dascritch](https://twitter.com/dascritch)

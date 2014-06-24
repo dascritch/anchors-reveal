@@ -1,19 +1,23 @@
-ANCHORS REVEAL
+Anchors reveal
 ==============
-
-Addon to show anchors in a web page
+* Firefox addon to show anchors in a web page. * Its main use is to help [a lazy blog redactor](http://dascritch.net) for rapidly linking to a relevant chapter in a long web page.
 
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
+
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
 Version : 0.1
 
-TODO
+Reference links
+---------------
+* Mozilla addon page : <https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/>
+* Repository : <https://github.com/dascritch/anchors-reveal> 
+* Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
+
+Todo
 ----
-* Layout position problems
-* Documentation
-* Purposes
-* do not display id for hidden elements
+See <https://github.com/dascritch/anchors-reveal/issues>
+* Do not display id for hidden elements
 * Original logo in SVG
 * Refresh on resize
 * Refresh on mutations
@@ -43,9 +47,8 @@ Versions
 --------
 * June 2014 : 0.1 , first version. Standalone JS and Firefox Addon
 
-Repository : <https://github.com/dascritch/anchors-reveal>
-
-Keeping in touch :
+Keeping in touch
+----------------
 * professional <http://dascritch.com>
 * blog <http://dascritch.net>
 * twitter : [@dascritch](https://twitter.com/dascritch)

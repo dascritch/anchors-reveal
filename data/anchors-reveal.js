@@ -11,14 +11,12 @@ function reBuild() {
 		'<div id="'+prefix+'" style="'+
 			'position : absolute;'+
 			'top : 0px;'+
-			'bottom : 0px;'+
 			'left : 0px;'+
-			'right : 0px;'+
 			'margin : 0px;'+
 			'padding : 0px;'+
 			'border : none;'+
-			'width : 100%;'+
-			'height : 100%;'+
+			'width : '+document.body.scrollWidth+'px;'+
+			'height : '+document.body.scrollHeight+'px;'+
 			'overflow : hidden;'+
 			'z-index : 50;'+
 			'pointer-events : none;'+
@@ -59,9 +57,7 @@ function reBuild() {
 		}
 	);
 	if (!has) {
-		layout.insertAdjacentHTML('beforeend',
-	        		'<a>Unnamed dog : Not a single ID element in this page.</a>'
-	        	);
+		window.alert('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 	}
 }
 

@@ -2,4 +2,5 @@ TODO
 
 * Documentation
 * Purposes
-* Firefox and Chrome plugins https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/Toolbars/Creating_toolbar_buttons
+* Do it as a Firefox addon
+* Creating a layer including style scoped

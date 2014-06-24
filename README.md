@@ -4,18 +4,16 @@ ANCHORS REVEAL
 Addon to show anchors in a web page
 
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
-Icon taken from the default KDE theme
+Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
 Version : 0.1
 
-
-
 TODO
 ----
-* bug positionnement offset
+* Layout position problems
 * Documentation
 * Purposes
-* Do it as a Firefox addon
+* do not display id for hidden elements
 * Original logo in SVG
 * Refresh on resize
 * Refresh on mutations

@@ -7,9 +7,9 @@
 
 var prefix = 'dascritch---anchors-reveal';
 function reBuild() {
-	document.body.insertAdjacentHTML('beforeend',
-		'<div id="'+prefix+'" style="'+
-			'position : absolute;'+
+	var layout = document.createElement('div');
+	layout.id = prefix;
+	layout.style='position : absolute;'+
 			'top : 0px;'+
 			'left : 0px;'+
 			'margin : 0px;'+
@@ -19,9 +19,8 @@ function reBuild() {
 			'height : '+document.body.scrollHeight+'px;'+
 			'overflow : hidden;'+
 			'z-index : 50;'+
-			'pointer-events : none;'+
-			'">'+
-			'<style scoped>'+
+			'pointer-events : none;';
+	layout.innerHTML = '<style scoped>'+
 				'a'+' {'+
 					'position : absolute ;'+
 					'font-family : sans-serif ;'+
@@ -38,10 +37,10 @@ function reBuild() {
 					'opacity : 1 ;'+
 					'color : black;'+
 				'}'+
-			'</style>'+
-		'</div>'
-	);
-	var layout = document.getElementById(prefix);
+			'</style>';
+  	document.body.appendChild(layout);
+
+	layout = document.getElementById(prefix);
 	var has = false;
 	var valid_id = /^[a-zA-Z0-9\-\_]+$/;
 	[].forEach.call(document.querySelectorAll('[id]'),

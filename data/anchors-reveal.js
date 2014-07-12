@@ -54,9 +54,15 @@ function reBuild() {
 				var rect = el.getBoundingClientRect();
 				var x = rect.left + window.scrollX;
 				var y = rect.top + window.scrollY;
-	        	layout.insertAdjacentHTML('beforeend',
+				var tag = document.createElement('a');
+				tag.href = '#'+el.id;
+				tag.style.left = x+'px';
+				tag.style.top = y+'px';
+				tag.innerHTML = '#'+el.id;
+	        	layout.appendChild(tag);
+	        	/*'beforeend',
 	        		'<a href="#'+el.id+'" style="top : '+y+'px ; left : '+x+'px ;">#'+el.id+'</a>'
-	        	);
+	        	);*/
 	        	has = true;
 	        }
 		}

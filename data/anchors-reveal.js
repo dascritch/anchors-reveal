@@ -76,3 +76,5 @@ if (document.getElementById(prefix) === null) {
 } else {
 	destroy();
 }
+
+window.addEventListener( 'resize', destroy ,false);

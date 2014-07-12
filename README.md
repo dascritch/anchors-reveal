@@ -14,6 +14,11 @@ Reference links
 * Repository : <https://github.com/dascritch/anchors-reveal> 
 * Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
 
+Howto build
+-----------
+You will need the addon sdk version 1.16 minimum.
+Test via `cfx run`. Don't forget to activate it first `source bin/activate`. 
+
 Todo
 ----
 See <https://github.com/dascritch/anchors-reveal/issues>

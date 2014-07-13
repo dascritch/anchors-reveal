@@ -6,7 +6,7 @@ Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 0.2
+Version : 0.3
 
 Reference links
 ---------------
@@ -50,6 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* July 2014 : 0.3 , removing direct html insertions for real DOM manips
 * July 2014 : 0.2 , sanitizing, filtering and removing layout on resize
 * June 2014 : 0.1 , first release. Standalone JS and Firefox Addon
 

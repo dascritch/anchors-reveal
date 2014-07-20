@@ -2,6 +2,8 @@ Anchors reveal
 ==============
 “Anchors reveal” is a **Firefox addon to show anchors in a web page.** Its main use is to help [a lazy blog redactor](http://dascritch.net) for rapidly linking to a relevant chapter in a long web page.
 
+To install latest stable and validated version, [go directly to its Mozilla addon page](https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/)
+
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
@@ -22,10 +24,7 @@ Test via `cfx run`. Don't forget to activate it first `source bin/activate`.
 Todo
 ----
 See <https://github.com/dascritch/anchors-reveal/issues>
-* Do not display id for hidden elements
 * Original logo in SVG
-* Refresh on resize
-* Refresh on mutations
 
 Licence
 -------

@@ -8,18 +8,18 @@ Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 0.3
+Version : 0.4
 
 Reference links
 ---------------
 * Mozilla addon page : <https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/>
-* Repository : <https://github.com/dascritch/anchors-reveal> 
+* Repository : <https://github.com/dascritch/anchors-reveal>
 * Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
 
 Howto build
 -----------
 You will need the addon sdk version 1.16 minimum.
-Test via `cfx run`. Don't forget to activate it first `source bin/activate`. 
+Test via `cfx run`. Don't forget to activate it first `source bin/activate`.
 
 Todo
 ----
@@ -49,6 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* August 2014 : 0.4 , hiding labels on top left of page
 * July 2014 : 0.3 , removing direct html insertions for real DOM manips
 * July 2014 : 0.2 , sanitizing, filtering and removing layout on resize
 * June 2014 : 0.1 , first release. Standalone JS and Firefox Addon

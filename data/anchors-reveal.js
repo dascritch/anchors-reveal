@@ -56,13 +56,15 @@ function reBuild() {
 				var rect = el.getBoundingClientRect();
 				var x = rect.left + window.scrollX;
 				var y = rect.top + window.scrollY;
-				var tag = document.createElement('a');
-				tag.href = '#'+el.id;
-				tag.style.left = x+'px';
-				tag.style.top = y+'px';
-				tag.appendChild( document.createTextNode('#'+el.id) );
-	        	layout.appendChild(tag);
-	        	has = true;
+				if  (! ( (x === 0) && (y === 0) )) {
+					var tag = document.createElement('a');
+					tag.href = '#'+el.id;
+					tag.style.left = x+'px';
+					tag.style.top = y+'px';
+					tag.appendChild( document.createTextNode('#'+el.id) );
+		        	layout.appendChild(tag);
+		        	has = true;
+	        	}
 	        }
 		}
 	);

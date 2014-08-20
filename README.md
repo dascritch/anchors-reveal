@@ -8,7 +8,7 @@ Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 0.4
+Version : 0.5
 
 Reference links
 ---------------
@@ -49,6 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* August 2014 : 0.5 , also reveal inline lements and wikipedia. GitHub won't be, because their improperly using name=""
 * August 2014 : 0.4 , hiding labels on top left of page
 * July 2014 : 0.3 , removing direct html insertions for real DOM manips
 * July 2014 : 0.2 , sanitizing, filtering and removing layout on resize

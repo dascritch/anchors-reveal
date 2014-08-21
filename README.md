@@ -8,7 +8,7 @@ Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 0.5
+Version : 0.6
 
 Reference links
 ---------------
@@ -18,8 +18,8 @@ Reference links
 
 Howto build
 -----------
-You will need the addon sdk version 1.16 minimum.
-Test via `cfx run`. Don't forget to activate it first `source bin/activate`.
+Since 0.6, you will need [JPM](https://github.com/mozilla/jpm) and Firefox 34+ (Nightly as today)
+To run, launch from directory : `jpm run -b firefox-trunk`
 
 Todo
 ----
@@ -49,6 +49,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* August 2014 : 0.6, switching from addon sdk `cfx` to JetPack `jpm` . Thanks [Erik Vold](http://work.erikvold.com/jetpack/2014/08/07/cfx-to-jpm.html) for transition help
 * August 2014 : 0.5 , also reveal inline lements and wikipedia. GitHub won't be, because their improperly using name=""
 * August 2014 : 0.4 , hiding labels on top left of page
 * July 2014 : 0.3 , removing direct html insertions for real DOM manips

@@ -16,6 +16,10 @@ Reference links
 * Repository : <https://github.com/dascritch/anchors-reveal>
 * Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
 
+Known bugs
+----------
+* GitHub won't work correctly, [because of their improperly use of attribute `name=""` in MD→HTML headings instead of `id=""`](https://github.com/jch/html-pipeline/issues/135)
+
 Howto build
 -----------
 Since 0.6, you will need [JPM](https://github.com/mozilla/jpm) and Firefox 34+ (Nightly as today)
@@ -50,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Versions
 --------
 * August 2014 : 0.6, switching from addon sdk `cfx` to JetPack `jpm` . Thanks [Erik Vold](http://work.erikvold.com/jetpack/2014/08/07/cfx-to-jpm.html) for transition help
-* August 2014 : 0.5 , also reveal inline lements and wikipedia. GitHub won't be, because their improperly using name=""
+* August 2014 : 0.5 , also reveal inline lements and wikipedia.
 * August 2014 : 0.4 , hiding labels on top left of page
 * July 2014 : 0.3 , removing direct html insertions for real DOM manips
 * July 2014 : 0.2 , sanitizing, filtering and removing layout on resize

@@ -1,3 +1,7 @@
+/*
+	This software is licenced under the GNU General Purpose Licence 3.0 . see http://www.gnu.org/licenses/gpl-3.0.txt
+	Copyright (C) 2014 Xavier "dascritch" Mouton-Dubosc
+ */
 (function() {
 	'use strict';
 

@@ -51,7 +51,7 @@
 
 		var has = false;
 		var valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
-		[].forEach.call(document.querySelectorAll('[id], [name]'),
+		[].forEach.call(document.querySelectorAll('[id], a[name]'),
 			function(el) {
 				var id = el.id || el.name;
 				if (

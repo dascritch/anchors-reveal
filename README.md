@@ -53,12 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* October 2016 : 0.7, will now accept old `a[name]` scheeme. Thanks [Aeris](https://github.com/aeris) for his patch. Hey ? Did I know you ?
 * August 2014 : 0.6, switching from addon sdk `cfx` to JetPack `jpm` . Thanks [Erik Vold](http://work.erikvold.com/jetpack/2014/08/07/cfx-to-jpm.html) for transition help
-* August 2014 : 0.5 , also reveal inline lements and wikipedia.
-* August 2014 : 0.4 , hiding labels on top left of page
-* July 2014 : 0.3 , removing direct html insertions for real DOM manips
-* July 2014 : 0.2 , sanitizing, filtering and removing layout on resize
-* June 2014 : 0.1 , first release. Standalone JS and Firefox Addon
+* August 2014 : 0.5, also reveal inline lements and wikipedia.
+* August 2014 : 0.4, hiding labels on top left of page
+* July 2014 : 0.3, removing direct html insertions for real DOM manips
+* July 2014 : 0.2, sanitizing, filtering and removing layout on resize
+* June 2014 : 0.1, first release. Standalone JS and Firefox Addon
 
 Keeping in touch
 ----------------

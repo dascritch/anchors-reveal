@@ -83,7 +83,13 @@
 	}
 
 	function destroy() {
-		document.body.removeChild(document.getElementById(LAYOUT_ID));
+        window.removeEventListener('resize', destroy, false);
+		var container = document.getElementById(LAYOUT_ID);
+        if(container) {
+            document.body.removeChild(container);
+        } else {
+           console.log('Failed to find container');
+        }
 	}
 
 	if (document.getElementById(LAYOUT_ID) === null) {

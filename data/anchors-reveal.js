@@ -31,7 +31,7 @@
 		var style = document.createElement('style');
 		style.scoped = true;
 		style.appendChild( document.createTextNode(
-				'a {'+
+				'a.' + LAYOUT_ID + ' {'+
 					'position : absolute ;'+
 					'font-family : sans-serif ;'+
 					'font-size : 14px ;'+
@@ -43,7 +43,7 @@
 					'opacity : 0.7 ;'+
 					'pointer-events : auto;'+
 				'}'+
-				'a:hover {'+
+				'a.' + LAYOUT_ID + ':hover {'+
 					'opacity : 1 ;'+
 					'color : black;'+
 				'}'));
@@ -65,6 +65,7 @@
 					if ( (! ( (x === 0) && (y === 0) )) // not on top, and really visible
 						&& (rect.width !== 0 ) && (rect.height !== 0 ) ) {
 						var tag = document.createElement('a');
+                        tag.className = LAYOUT_ID;
 						tag.dataset.anchors_reveal = true;
 						tag.href = '#'+id;
 						tag.style.left = x+'px';

@@ -5,10 +5,11 @@ Anchors reveal
 To install latest stable and validated version, [go directly to its Mozilla addon page](https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/)
 
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
+Portage to WebExtension and some bug corrections : [Makyen](https://github.com/makyen)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 0.6
+Version : 0.8
 
 Reference links
 ---------------
@@ -22,8 +23,8 @@ Known bugs
 
 Howto build
 -----------
-Since 0.6, you will need [JPM](https://github.com/mozilla/jpm) and Firefox 34+ (Nightly as today)
-To run, launch from directory : `jpm run -b firefox-trunk`
+Since 0.8, you must go thru WebExtension service.
+How to install is described [https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Your_first_WebExtension#Trying_it_out](Your first extension)
 
 Todo
 ----

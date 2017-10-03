@@ -2,7 +2,7 @@
     "description"      : "Shows anchors in a webpage",
     "manifest_version" : 2,
     "name"             : "anchors-reveal",
-    "version"          : "0.8",
+    "version"          : "0.9",
     "author"           : "Xavier “dascritch” Mouton-Dubosc",
     "homepage_url"     : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
 

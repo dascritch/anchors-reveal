@@ -24,7 +24,7 @@
 				'width : '+document.body.scrollWidth+'px;'+
 				'height : '+document.body.scrollHeight+'px;'+
 				'overflow : hidden;'+
-				'z-index : 2147483647;'+
+				'z-index : 2147483647;'+   // 2^31-1 , theorical maximum 
 				'pointer-events : none;';
 		document.body.appendChild(layout);
 

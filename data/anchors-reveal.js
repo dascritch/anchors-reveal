@@ -11,42 +11,43 @@
 	 */
 
 	var LAYOUT_ID = 'anchors-reveal';
+	var LAYOUT_Z_INDEX = 2147483647; // 2^31-1 , theorical maximum 
 	function reBuild() {
 		var layout = document.createElement('div');
 		layout.id = LAYOUT_ID;
 		layout.dataset.anchors_reveal = true;
-		layout.style = 'position : absolute;'+
-				'top : 0px;'+
-				'left : 0px;'+
-				'margin : 0px;'+
-				'padding : 0px;'+
-				'border : none;'+
-				'width : '+document.body.scrollWidth+'px;'+
-				'height : '+document.body.scrollHeight+'px;'+
-				'overflow : hidden;'+
-				'z-index : 2147483647;'+   // 2^31-1 , theorical maximum 
-				'pointer-events : none;';
+		layout.style = `position : absolute;
+				top : 0px;
+				left : 0px;
+				margin : 0px;
+				padding : 0px;
+				border : none;
+				width : ${document.body.scrollWidth}px;
+				height : ${document.body.scrollHeight}px;
+				overflow : hidden;
+				z-index : ${LAYOUT_Z_INDEX};   
+				pointer-events : none;`;
 		document.body.appendChild(layout);
 
 		var style = document.createElement('style');
 		style.scoped = true;
 		style.appendChild( document.createTextNode(
-				'a.' + LAYOUT_ID + ' {'+
-					'position : absolute ;'+
-					'font-family : sans-serif ;'+
-					'font-size : 14px ;'+
-					'font-weight : bold;'+
-					'background : yellow ;'+
-					'color : black;'+
-					'padding : 4px ;'+
-					'border : 1px black solid ;'+
-					'opacity : 0.7 ;'+
-					'pointer-events : auto;'+
-				'}'+
-				'a.' + LAYOUT_ID + ':hover {'+
-					'opacity : 1 ;'+
-					'color : black;'+
-				'}'));
+				`a.${LAYOUT_ID} {
+					position : absolute ;
+					font-family : sans-serif ;
+					font-size : 14px ;
+					font-weight : bold;
+					background : yellow ;
+					color : black;
+					padding : 4px ;
+					border : 1px black solid ;
+					opacity : 0.7 ;
+					pointer-events : auto;
+				}
+				a.${LAYOUT_ID}:hover {
+					opacity : 1 ;
+					color : black;
+				}`));
 		layout.appendChild(style);
 
 		var has = false;
@@ -77,7 +78,7 @@
 			}
 		);
 		if (!has) {
-			window.alert('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
+			console.alert('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 		}
 	}
 

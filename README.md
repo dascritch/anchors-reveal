@@ -21,6 +21,11 @@ Known bugs
 ----------
 * GitHub won't work correctly, [because of their improperly use of attribute `name=""` in MD→HTML headings instead of `id=""`](https://github.com/jch/html-pipeline/issues/135)
 
+Howte dev
+---------
+
+To test your code, go in `about:debugging` and choose the project's `manifest.json`
+
 Howto build
 -----------
 Since 0.8, you must go thru WebExtension service.

@@ -14,7 +14,8 @@
     },
 
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
 
     "background": {
@@ -22,6 +23,10 @@
             "background.js"
         ],
         "persistent": false
+    },
+
+    "options_ui": {
+        "page": "settings/options.html"
     },
 
     "browser_action": {

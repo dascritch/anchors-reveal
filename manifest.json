@@ -1,10 +1,11 @@
 {
-    "description"      : "Shows anchors in a webpage",
-    "manifest_version" : 2,
-    "name"             : "anchors-reveal",
-    "version"          : "0.9",
-    "author"           : "Xavier “dascritch” Mouton-Dubosc",
-    "homepage_url"     : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
+    "name"              : "__MSG_extensionName__",
+    "description"       : "__MSG_extensionDescription__",
+    "manifest_version"  : 2,
+    "version"           : "1.0alpha",
+    "author"            : "Xavier “dascritch” Mouton-Dubosc",
+    "homepage_url"      : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
+    "default_locale"    : "en",
 
     "applications": {
         "gecko": {
@@ -15,7 +16,8 @@
 
     "permissions": [
         "activeTab",
-        "storage"
+        "storage",
+        "contextMenus"
     ],
 
     "background": {
@@ -36,6 +38,6 @@
             "64"    : "/data/icon-64.png"
         },
         "browser_style": true,
-        "default_title": "Toggle display of anchors"
+        "default_title": "__MSG_buttonDescription__"
     }
 }

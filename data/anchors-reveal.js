@@ -2,7 +2,7 @@
 	This software is licenced under the GNU General Purpose Licence 3.0 . see http://www.gnu.org/licenses/gpl-3.0.txt
 	Copyright (C) 2014 Xavier "dascritch" Mouton-Dubosc
  */
-(function(document,window) {
+(function(document, window, browser) {
 	'use strict';
 
 	/**
@@ -13,41 +13,29 @@
 	var LAYOUT_ID = 'anchors-reveal';
 	var LAYOUT_Z_INDEX = 2147483647; // 2^31-1 , theorical maximum 
 	var THEMES = {
-		'classical_yellow' : {
+		'ClassicalYellow' : {
 			background : 'yellow',
 			color : 'black'
 		},
-		'light_blue'  : {
+		'LightBlue'  : {
 			background : '#aaf',
 			color : 'black'
 		},
-		'white_paper' : {
+		'WhitePaper' : {
 			background : 'white',
 			color : 'black'
 		},
-		'gothic_addict' : {
+		'GothicAddict' : {
 			background : 'black',
 			color : 'white'
 		},
 	}
-	var theme = THEMES['classical_yellow'];
 
-	function onError(error) {
-	  	console.log(`Error: ${error}`);
-	}
+	var theme = THEMES['ClassicalYellow'];
+	var valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
 
-	function onGot(item) {
-		console.info(`THZLZ is ${item.theme}`)
-	  	if (item.theme) {
-	    	theme = THEMES[item.theme];
-	  	}
-	}
-
-	var getting = browser.storage.local.get("theme");
-	getting.then(onGot, onError);
-
-
-	function reBuild() {
+	function build_layer() {
+	
 
 		function reveal_for_element(element) {
 			var id = element.id || element.name;
@@ -58,8 +46,8 @@
 				var rect = element.getBoundingClientRect();
 				var x = rect.left + window.scrollX;
 				var y = rect.top + window.scrollY;
-				if ( (! ( (x === 0) && (y === 0) )) // not on top, and really visible
-                ) {
+				if ( ! ( (x === 0) && (y === 0) )) {
+                	// not on top, and really visible
 					var tag = document.createElement('a');
                     tag.className = LAYOUT_ID;
 					tag.dataset.anchors_reveal = true;
@@ -91,8 +79,8 @@
 
 		var style = document.createElement('style');
 		style.scoped = true;
-		style.appendChild( document.createTextNode(
-				`a.${LAYOUT_ID} {
+		style.appendChild( document.createTextNode(`
+				a.${LAYOUT_ID} {
 					position : absolute ;
 					font-family : sans-serif ;
 					font-size : 14px ;
@@ -111,12 +99,8 @@
 		layout.appendChild(style);
 
 		var has = false;
-		var valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
-		Array.from(
-			document.querySelectorAll('[id], a[name]')
-			).forEach(
-			reveal_for_element			
-		);
+		Array.from(document.querySelectorAll('[id], a[name]')).
+			forEach(reveal_for_element);
 		if (!has) {
 			console.alert('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 		}
@@ -125,18 +109,32 @@
 	function destroy() {
         window.removeEventListener('resize', destroy, false);
 		var container = document.getElementById(LAYOUT_ID);
-        if(container) {
+        if (container) {
             document.body.removeChild(container);
         } else {
            console.log('Failed to find container');
         }
 	}
 
+	function on_error(error) {
+	  	console.log(`Error: ${error}`);
+	}
+
+	function on_got_parameters(result) {
+	  	if (result.theme) {
+	    	theme = THEMES[result.theme];
+	  	}
+	  	build_layer();
+	}
+
 	if (document.getElementById(LAYOUT_ID) === null) {
-		reBuild();
+		var getting_storage = browser.storage.local.get('theme');
+		
+		getting_storage.then(on_got_parameters, on_error);
 	} else {
 		destroy();
 	}
 
+
 	window.addEventListener('resize', destroy, false);
-})(document, window);
+})(document, window, browser);

@@ -1,55 +1,63 @@
-// Loosely adapted from https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Implement_a_settings_page
+
+'use strict';
 
 var THEMES = {
-    'classical_yellow' : {
+    'ClassicalYellow' : {
         background : 'yellow',
         color : 'black'
     },
-    'light_blue'  : {
+    'LightBlue'  : {
         background : '#aaf',
         color : 'black'
     },
-    'white_paper' : {
+    'WhitePaper' : {
         background : 'white',
         color : 'black'
     },
-    'gothic_addict' : {
+    'GothicAddict' : {
         background : 'black',
         color : 'white'
     },
 }
 
+var form_parameters;
 
 function saveOptions(event) {
-  event.preventDefault();
-  browser.storage.local.set({
-    theme: document.getElementById("anchors-reveal-parameters").theme.value
-  });
+    event.preventDefault();
+    browser.storage.local.set({
+        theme: form_parameters.theme.value
+    });
 }
 
 function restoreOptions() {
 
-  function setCurrentChoice(result) {
-    var theme_restored = result.theme || "classical_yellow";
-    document.querySelector(`#anchors-reveal-parameters input[name="theme"][value="${theme_restored}"]`).checked = true;
-  }
+    function setCurrentChoice(result) {
+        var theme_restored = result.theme || "ClassicalYellow";
+        form_parameters.querySelector(`input[name="theme"][value="${theme_restored}"]`).checked = true;
+    }
 
-  function onError(error) {
-    console.log(`Error: ${error}`);
-  }
+    function onError(error) {
+        console.log(`Error: ${error}`);
+    }
 
-  var getting = browser.storage.local.get("theme");
-  getting.then(setCurrentChoice, onError);
+    var getting = browser.storage.local.get('theme');
+    getting.then(setCurrentChoice, onError);
 
-  Array.from(document.querySelector('#anchors-reveal-parameters input')).
+    form_parameters = document.getElementById('anchors-reveal-parameters');
+    form_parameters.addEventListener('input', saveOptions);
+
+    // Yes, lazy i18n procedures, as nothing can be done in HTML code (but you can in CSS)
+    form_parameters.querySelector('legend').innerHTML = browser.i18n.getMessage('themeParameterDescription');
+
+    Array.from(form_parameters.querySelectorAll('input')).
         forEach(function(element){
             var this_theme = THEMES[element.value];
-            var parent = element.closest('label');
-            parent.style.color = this_theme.color;
-            parent.style.background  = this_theme.background;
+            var demo_label = element.closest('label').querySelector('span');
+            demo_label.style.color = this_theme.color;
+            demo_label.style.background  = this_theme.background;
+            demo_label.innerHTML = browser.i18n.getMessage(`ThemeNamed${element.value}`);
         }
     )
 }
 
-document.addEventListener("DOMContentLoaded", restoreOptions);
-document.querySelector("form").addEventListener("submit", saveOptions)
+document.addEventListener('DOMContentLoaded', restoreOptions);

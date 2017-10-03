@@ -25,31 +25,53 @@ var form_parameters;
 function saveOptions(event) {
     event.preventDefault();
     browser.storage.local.set({
-        theme: form_parameters.theme.value
+        theme: form_parameters.theme.value,
+        menu: form_parameters.menu.checked,
+        sidebar: form_parameters.sidebar.checked
     });
 }
 
 function restoreOptions() {
 
-    function setCurrentChoice(result) {
+    function setCurrentThemeChoice(result) {
         var theme_restored = result.theme || "ClassicalYellow";
         form_parameters.querySelector(`input[name="theme"][value="${theme_restored}"]`).checked = true;
+    }
+
+    function setCurrentMenuChoice(result) {
+        var is_menu = result.menu || false;
+        form_parameters.querySelector('input[name="menu"]').checked = is_menu;
+    }
+
+    function setCurrentSidebarChoice(result) {
+        var is_sidebar = result.sidebar || false;
+        form_parameters.querySelector('input[name="sidebar"]').checked = is_sidebar;
     }
 
     function onError(error) {
         console.log(`Error: ${error}`);
     }
 
+    // BEEEEH , needs refactoring
     var getting = browser.storage.local.get('theme');
-    getting.then(setCurrentChoice, onError);
+    getting.then(setCurrentThemeChoice, onError);
+
+    var getting = browser.storage.local.get('menu');
+    getting.then(setCurrentMenuChoice, onError);
+/*
+    var getting = browser.storage.local.get('sidebar');
+    getting.then(setCurrentSidebarChoice, onError);
+*/
 
     form_parameters = document.getElementById('anchors-reveal-parameters');
     form_parameters.addEventListener('input', saveOptions);
 
     // Yes, lazy i18n procedures, as nothing can be done in HTML code (but you can in CSS)
-    form_parameters.querySelector('legend').innerHTML = browser.i18n.getMessage('themeParameterDescription');
+    var legends = form_parameters.querySelectorAll('legend') 
+    legends[0].innerHTML = browser.i18n.getMessage('themeParameterDescription');
+    legends[1].innerHTML = browser.i18n.getMessage('cumbersomeParametersDescription');
 
-    Array.from(form_parameters.querySelectorAll('input')).
+    Array.from(form_parameters.querySelectorAll('input[type="radio"]')).
         forEach(function(element){
             var this_theme = THEMES[element.value];
             var demo_label = element.closest('label').querySelector('span');
@@ -57,7 +79,12 @@ function restoreOptions() {
             demo_label.style.background  = this_theme.background;
             demo_label.innerHTML = browser.i18n.getMessage(`ThemeNamed${element.value}`);
         }
-    )
+    );
+
+    form_parameters.querySelector('input[name="menu"] + span').innerHTML = browser.i18n.getMessage('checkContextMenu');
+
+
+
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);

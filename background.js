@@ -25,14 +25,26 @@ function handleExecuteScriptAndInsertCSSErrors(tabId){
     }
 }
 
+function oops(e) {
+    console.error(e);
+}
 
-browser.contextMenus.create({
-  id: menu_id,
-  title: browser.i18n.getMessage('buttonDescription')
-});
+function add_contextual_menu(result) {
 
-browser.contextMenus.onClicked.addListener(function(info, tab) {
-  if (info.menuItemId === menu_id) {
-    browser.tabs.executeScript(script_to_call);
-  }
-});
+    if (result.menu) {
+        browser.contextMenus.create({
+          id: menu_id,
+          title: browser.i18n.getMessage('buttonDescription')
+        });
+
+        browser.contextMenus.onClicked.addListener(function(info, tab) {
+          if (info.menuItemId === menu_id) {
+            browser.tabs.executeScript(script_to_call);
+          }
+        });
+    }
+
+}
+
+var getting = browser.storage.local.get('menu');
+getting.then(add_contextual_menu, oops);

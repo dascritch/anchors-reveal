@@ -34,6 +34,15 @@
      "themeNamedGothicAddict": {
     "message": "Gothique pratiquant",
     "description": "Theme description for value GothicAddict."
+  },
+
+  "cumbersomeParametersDescription": {
+    "message": "Options vraiment très optionnelles",
+    "description": "Cluncky options description."
+  },
+  "checkContextMenu": {
+    "message": "Ajoute une entrée au menu contextuel **",
+    "description": "Add a contextual menu entry."
   }
 
 }

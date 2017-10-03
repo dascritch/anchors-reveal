@@ -32,9 +32,19 @@
     "message": "White Paper",
     "description": "Theme description for value WhitePaper."
   },
-     "themeNamedGothicAddict": {
+  "themeNamedGothicAddict": {
     "message": "Gothic Addict",
     "description": "Theme description for value GothicAddict."
+  },
+
+
+  "cumbersomeParametersDescription": {
+    "message": "Really optionnal so-called features",
+    "description": "Cluncky options description."
+  },
+  "checkContextMenu": {
+    "message": "Add a contextual menu entry **",
+    "description": "Add a contextual menu entry."
   }
 
 }

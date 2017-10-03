@@ -1,0 +1,40 @@
+{
+  "extensionName": {
+    "message": "Anchors Reveal",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Shows anchors in a webpage.",
+    "description": "Description of the extension."
+  },
+
+  "buttonDescription": {
+    "message": "Show/hide anchors in the webpage.",
+    "description": "Hover message for the toolbar."
+  },
+
+   "themeParameterDescription": {
+    "message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
+    "description": "Theme chooser description."
+  },
+
+
+   "themeNamedClassicalYellow": {
+    "message": "Classical Yellow",
+    "description": "Theme description for value ClassicalYellow."
+  },
+     "themeNamedLightBlue": {
+    "message": "Light Blue",
+    "description": "Theme description for value LightBlue."
+  },
+     "themeNamedWhitePaper": {
+    "message": "White Paper",
+    "description": "Theme description for value WhitePaper."
+  },
+     "themeNamedGothicAddict": {
+    "message": "Gothic Addict",
+    "description": "Theme description for value GothicAddict."
+  }
+
+}

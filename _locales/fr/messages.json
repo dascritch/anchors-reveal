@@ -1,0 +1,39 @@
+{
+  "extensionName": {
+    "message": "Anchors Reveal",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Révèle les ancres dans une page web.",
+    "description": "Description of the extension."
+  },
+
+  "buttonDescription": {
+    "message": "Affiche/cache les ancres de la page.",
+    "description": "Hover message for the toolbar."
+  },
+
+  "themeParameterDescription": {
+    "message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
+    "description": "Theme chooser description."
+  },
+
+
+   "themeNamedClassicalYellow": {
+    "message": "Jaune traditionnel",
+    "description": "Theme description for value ClassicalYellow."
+  },
+     "themeNamedLightBlue": {
+    "message": "Bleu léger",
+    "description": "Theme description for value LightBlue."
+  },
+     "themeNamedWhitePaper": {
+    "message": "Feuille blanche",
+    "description": "Theme description for value WhitePaper."
+  },
+     "themeNamedGothicAddict": {
+    "message": "Gothique pratiquant",
+    "description": "Theme description for value GothicAddict."
+  }
+
+}

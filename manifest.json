@@ -28,7 +28,7 @@
     },
 
     "options_ui": {
-        "page": "settings/options.html"
+        "page": "options.html"
     },
 
     "browser_action": {
@@ -40,4 +40,10 @@
         "browser_style": true,
         "default_title": "__MSG_buttonDescription__"
     }
+
 }
+
+
+
+
+ 

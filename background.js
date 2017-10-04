@@ -22,23 +22,28 @@ var THEMES = {
     },
 };
 
-function add_contextual_menu(result) {
+function add_contextual_menu() {
+    browser.contextMenus.create({
+      id: menu_id,
+      title: browser.i18n.getMessage('buttonDescription'),
+      icons: {
+        '16': "data/icon-16.png",
+        '32': "data/icon-32.png"
+      }
+    });
 
+    browser.contextMenus.onClicked.addListener(function(info, tab) {
+      if (info.menuItemId === menu_id) {
+        browser.tabs.executeScript(script_to_call);
+      }
+    });
+};
+
+// end import
+
+function instantiate_contextual_menu(result) {
     if (result.menu) {
-        browser.contextMenus.create({
-          id: menu_id,
-          title: browser.i18n.getMessage('buttonDescription'),
-          icons: {
-            '16': "data/icon-16.png",
-            '32': "data/icon-32.png"
-          }
-        });
-
-        browser.contextMenus.onClicked.addListener(function(info, tab) {
-          if (info.menuItemId === menu_id) {
-            browser.tabs.executeScript(script_to_call);
-          }
-        });
+        add_contextual_menu();
     } else {
         try {
             browser.contextMenus.remove(menu_id);
@@ -46,11 +51,7 @@ function add_contextual_menu(result) {
 
         }
     }
-};
-
-// end import
-
-
+}
 
 //The following was modified from http://stackoverflow.com/a/40517692/3773011 Copied by the author of the post.
 function handleExecuteScriptAndInsertCSSErrors(tabId){
@@ -78,9 +79,8 @@ function oops(e) {
 
 
 var getting = browser.storage.local.get('menu');
-getting.then(add_contextual_menu, oops);
+getting.then(instantiate_contextual_menu, oops);
 
 chrome.browserAction.onClicked.addListener(function(tab){
     chrome.tabs.executeScript(tab.id, script_to_call, handleExecuteScriptAndInsertCSSErrors);
 });
-

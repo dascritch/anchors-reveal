@@ -27,6 +27,16 @@
         "persistent": false
     },
 
+    "TODO____sidebar_action": {
+      "default_title": "__MSG_extensionName__",
+      "default_panel": "sidebar.html",
+      "default_icon": {
+            "16"    : "/data/icon-16.png",
+            "32"    : "/data/icon-32.png",
+            "64"    : "/data/icon-64.png"
+        }
+    },
+
     "options_ui": {
         "page": "options.html"
     },

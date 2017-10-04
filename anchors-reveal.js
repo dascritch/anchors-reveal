@@ -120,16 +120,27 @@
 	  	console.log(`Error: ${error}`);
 	}
 
+/*
+	function on_got_sidebar(result) {
+	  	if (result.sidebar) {
+	    	// TODO open sidebar
+
+	  	}
+	  	build_layer();
+	}
+*/
+
 	function on_got_parameters(result) {
 	  	if (result.theme) {
 	    	theme = THEMES[result.theme];
 	  	}
-	  	build_layer();
+	  	//var getting_storage = browser.storage.local.get('sidebar');
+		//getting_storage.then(on_got_sidebar, on_error);
+		build_layer();
 	}
 
 	if (document.getElementById(LAYOUT_ID) === null) {
 		var getting_storage = browser.storage.local.get('theme');
-		
 		getting_storage.then(on_got_parameters, on_error);
 	} else {
 		destroy();

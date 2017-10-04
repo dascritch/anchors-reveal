@@ -41,8 +41,12 @@
     "description": "Cluncky options description."
   },
   "checkContextMenu": {
-    "message": "Ajoute une entrée au menu contextuel **",
-    "description": "Add a contextual menu entry."
+    "message": "Ajoute une entrée au menu contextuel",
+    "description": "Option to add a context menu entry"
+  },
+  "checkSidebar": {
+    "message": "Ouvre une barre latérale",
+    "description": "Option to open a sidebar."
   }
 
 }

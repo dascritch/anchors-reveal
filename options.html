@@ -9,24 +9,25 @@
 <body>
 
     <form id="anchors-reveal-parameters">
-        <style scoped>
-            span {
-                font-family : sans-serif ;
-                font-size : 14px ;
-                font-weight : bold;
-                padding : 4px ;
-                border : 1px black solid ;
-                opacity : 0.7 ;
-                pointer-events : auto;
-            }
-            label:hover span {
-                opacity : 1 ;
-                color : black;
-            }
-        </style>
-
-        <fieldset>
+        <fieldset id="themes">
             <legend>Choose a theme color for the <del>sticky notes</del> revealed anchors</legend>
+
+            <style scoped>
+                #themes span {
+                    font-family : sans-serif ;
+                    font-size : 14px ;
+                    font-weight : bold;
+                    padding : 4px ;
+                    border : 1px black solid ;
+                    opacity : 0.7 ;
+                    pointer-events : auto;
+                }
+                #themes label:hover span {
+                    opacity : 1 ;
+                    color : black;
+                }
+            </style>
+
             <p>
                 <label>
                     <input type="radio" name="theme" value="ClassicalYellow" />
@@ -58,7 +59,7 @@
             <p>
                 <label>
                     <input type="checkbox" name="menu" value="1" />
-                    Add a contextual menu entry
+                    <span>Add a contextual menu entry</span>
                 </label>
             </p>
         
@@ -66,8 +67,8 @@
             <p>
                 <label>
                     <input type="checkbox" name="sidebar" value="1" />
-                    Open the sidebar
-                </label> (TODO)
+                    <span>Open the sidebar</span>
+                </label>
             </p>
             -->
         

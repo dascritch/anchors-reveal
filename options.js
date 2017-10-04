@@ -1,4 +1,6 @@
-var script_to_call = {file:'/data/anchors-reveal.js'};
+// import {THEMES, add_contextual_menu} from 'lib';
+
+var script_to_call = {file:'anchors-reveal.js'};
 var menu_id = 'anchors-reveal';
 
 var THEMES = {
@@ -46,8 +48,7 @@ function add_contextual_menu(result) {
     }
 };
 
-/// import {THEMES, add_contextual_menu} from 'lib';
-
+// end import
 
 
 

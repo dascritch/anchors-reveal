@@ -1,6 +1,6 @@
 // ES6 import modules doesn't seems working in WebExtension context :/
 
-export var script_to_call = {file:'/data/anchors-reveal.js'};
+export var script_to_call = {file:'anchors-reveal.js'};
 export var menu_id = 'anchors-reveal';
 
 export var THEMES = {

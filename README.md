@@ -44,7 +44,7 @@ Licence
 
 Copyright (C) 2014 Xavier "dascritch" Mouton-Dubosc
 
-This software is licenced under the [GNU General Purpose Licence](http://www.gnu.org/licenses/gpl-3.0.txt).
+This software is licenced under the [GNU General Public Licence](http://www.gnu.org/licenses/gpl-3.0.txt).
 Use it and deploy it as you want : i've done too much closed source before.
 
 This program is free software: you can redistribute it and/or modify

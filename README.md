@@ -11,20 +11,19 @@ Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Te
 
 Version : 0.9
 
+
 Reference links
 ---------------
 * Mozilla addon page : <https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/>
 * Repository : <https://github.com/dascritch/anchors-reveal>
 * Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
 
-Known bugs
-----------
-* GitHub won't work correctly, [because of their improperly use of attribute `name=""` in MD→HTML headings instead of `id=""`](https://github.com/jch/html-pipeline/issues/135)
 
-Howte dev
+Howto dev
 ---------
 
 To test your code, go in `about:debugging` and choose the project's `manifest.json`
+
 
 Howto build
 -----------
@@ -33,10 +32,12 @@ How to install is described [https://developer.mozilla.org/en-US/Add-ons/WebExte
 
 Building the zip file is done via the `make.sh` script.
 
+
 Todo
 ----
 See <https://github.com/dascritch/anchors-reveal/issues>
 * Original logo in SVG
+
 
 Licence
 -------
@@ -59,6 +60,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 Versions
 --------
 * August 2017 : 0.8, now ported in WebExtension, thanks to [Makyen](https://github.com/makyen) ans everyone in the community
@@ -69,6 +71,7 @@ Versions
 * July 2014 : 0.3, removing direct html insertions for real DOM manips
 * July 2014 : 0.2, sanitizing, filtering and removing layout on resize
 * June 2014 : 0.1, first release. Standalone JS and Firefox Addon
+
 
 Keeping in touch
 ----------------

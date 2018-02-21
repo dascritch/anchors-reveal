@@ -28,7 +28,7 @@ To test your code, go in `about:debugging` and choose the project's `manifest.js
 Howto build
 -----------
 Since 0.8, you must go thru WebExtension service.
-How to install is described [https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Your_first_WebExtension#Trying_it_out](Your first extension)
+How to install is described [Your first extension](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Your_first_WebExtension#Trying_it_out)
 
 Building the zip file is done via the `make.sh` script.
 

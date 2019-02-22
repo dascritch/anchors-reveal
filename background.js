@@ -56,13 +56,13 @@ function instantiate_contextual_menu(result) {
 //The following was modified from http://stackoverflow.com/a/40517692/3773011 Copied by the author of the post.
 function handleExecuteScriptAndInsertCSSErrors(tabId){
     if(chrome.runtime.lastError){
-        var isFirefox = !!window.InstallTrigger;
+        let isFirefox = !!window.InstallTrigger;
 
-        var message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
+        let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
 
         // REALLY UGLY
-        if((!isFirefox && message.indexOf('Cannot access a chrome:') > -1) //Chrome
-            || (isFirefox && message.indexOf('No window matching') > -1) //Firefox
+        if((!isFirefox && message.indexOf && (message.indexOf('Cannot access a chrome:') > -1)) //Chrome
+            || (isFirefox && (message.indexOf && message.indexOf('No window matching') > -1)) //Firefox
         ){
             //The current tab is one into which we are not allowed to inject scripts.
             console.info('The anchors-reveal extention does not work on this URL.');

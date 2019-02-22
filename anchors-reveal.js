@@ -101,22 +101,19 @@ a:hover {
 			this.style = `
 				width : ${document.body.scrollWidth}px;
 				height : ${document.body.scrollHeight}px;
-				${HOST_STYLE}
-				`;
+				${HOST_STYLE}`;
 
 			let has = false;
 			Array.from(document.querySelectorAll('[id], a[name]')).
 				forEach(reveal_for_element);
 			if (!has) {
-				console.alert('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
+				on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 			}
 	    }
 	}
 	 window.customElements.define(LAYOUT_ID, ExtensionLayer);
 
 	function build_layer() {
-		
-
 		if (!document.querySelector(TEMPLATE_SELECTOR)) {
 			let template = document.createElement('template');
 			template.id = LAYOUT_ID;
@@ -124,8 +121,9 @@ a:hover {
 			document.head.appendChild(template);
 		}
 
+
 		let tag = document.createElement(LAYOUT_ID);
-		document.body.appendChild(layout);
+		document.body.appendChild(tag);
 	
 	}
 
@@ -135,12 +133,12 @@ a:hover {
         if (container) {
             document.body.removeChild(container);
         } else {
-           console.log('Failed to find container');
+           on_error('Failed to find container');
         }
 	}
 
 	function on_error(error) {
-	  	console.log(`Error: ${error}`);
+	  	console.error(`Error in achors-reveal extension: ${error}`);
 	}
 
 /*

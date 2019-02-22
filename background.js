@@ -55,12 +55,14 @@ function instantiate_contextual_menu(result) {
 
 //The following was modified from http://stackoverflow.com/a/40517692/3773011 Copied by the author of the post.
 function handleExecuteScriptAndInsertCSSErrors(tabId){
-    if(chrome.runtime.lastError){
+    if (chrome.runtime.lastError){
         let isFirefox = !!window.InstallTrigger;
 
         let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
 
+        console.error(message);
         // REALLY UGLY
+        /*
         if((!isFirefox && message.indexOf && (message.indexOf('Cannot access a chrome:') > -1)) //Chrome
             || (isFirefox && (message.indexOf && message.indexOf('No window matching') > -1)) //Firefox
         ){
@@ -68,8 +70,9 @@ function handleExecuteScriptAndInsertCSSErrors(tabId){
             console.info('The anchors-reveal extention does not work on this URL.');
         } else {
             // Report the error
-            console.error(message);
+            
         }
+        */
     }
 }
 
@@ -78,7 +81,7 @@ function oops(e) {
 }
 
 
-var getting = browser.storage.local.get('menu');
+let getting = browser.storage.local.get('menu');
 getting.then(instantiate_contextual_menu, oops);
 
 chrome.browserAction.onClicked.addListener(function(tab){

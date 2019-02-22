@@ -61,19 +61,6 @@ function handleExecuteScriptAndInsertCSSErrors(tabId){
         let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
 
         window.console.error(message);
-        window.console.trace();
-        // REALLY UGLY
-        /*
-        if((!isFirefox && message.indexOf && (message.indexOf('Cannot access a chrome:') > -1)) //Chrome
-            || (isFirefox && (message.indexOf && message.indexOf('No window matching') > -1)) //Firefox
-        ){
-            //The current tab is one into which we are not allowed to inject scripts.
-            console.info('The anchors-reveal extention does not work on this URL.');
-        } else {
-            // Report the error
-            
-        }
-        */
     }
 }
 

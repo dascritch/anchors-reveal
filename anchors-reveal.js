@@ -31,7 +31,7 @@ position : absolute;
 	${HOST_STYLE}
 }
 
-.ClassicalYellow a {
+div a, .ClassicalYellow a {
 	background-color : yellow;
 	color : black;
 }
@@ -67,6 +67,7 @@ a:hover {
 
 	let valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
 	let session = null;
+	let theme;
 
 	if (window.customElements.get(LAYOUT_ID) === undefined) {
 		
@@ -81,7 +82,7 @@ a:hover {
 				session = this;
 				let shadow = this.shadowRoot;
 				let div = shadow.querySelector('div');
-				div.className = 'ClassicalYellow';
+				div.className = theme;
 
 				function reveal_for_element(element) {
 					let id = element.id || element.name;
@@ -130,10 +131,8 @@ a:hover {
 			document.head.appendChild(template);
 		}
 
-
 		let tag = document.createElement(LAYOUT_ID);
 		document.body.appendChild(tag);
-	
 	}
 
 	function destroy() {
@@ -167,11 +166,8 @@ a:hover {
 */
 
 	function on_got_parameters(result) {
-		if (result.theme) {
-			// TODO
-		}
-		//var getting_storage = browser.storage.local.get('sidebar');
-		//getting_storage.then(on_got_sidebar, on_error);
+		//window.console.log({result})
+		theme = result.theme
 		build_layer();
 	}
 

@@ -18,6 +18,8 @@ z-index : ${LAYOUT_Z_INDEX};
 position : absolute;
 	top : 0px;
 	left : 0px;
+	bottom : 0px;
+	right : 0px;
 	margin : 0px;
 	padding : 0px;
 	border : none;
@@ -30,22 +32,22 @@ position : absolute;
 }
 
 .ClassicalYellow a {
-	background : yellow;
+	background-color : yellow;
 	color : black;
 }
 
 .LightBlue a {
-	background : #aaf;
+	background-color : #aaf;
 	color : black;
 }
 
 .WhitePaper a {
-	background : white;
+	background-color : white;
 	color : black;
 }
 
 .GothicAddict a {
-	background : black;
+	background-color : black;
 	color : white;
 }
 
@@ -64,6 +66,7 @@ a:hover {
 }`;
 
 	let valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
+	let session = null;
 
 	class ExtensionLayer extends HTMLElement {
 	    constructor() {
@@ -71,10 +74,12 @@ a:hover {
 	    	let template = document.querySelector(TEMPLATE_SELECTOR);
 	        let shadow_element = this.attachShadow({mode: "open"}); 
 	        shadow_element.innerHTML = template.innerHTML;
-	        shadow_element.className = 'ClassicalYellow';
 	    }
 	    connectedCallback() {
+	    	session = this;
 	    	let shadow = this.shadowRoot;
+	    	let div = shadow.querySelector('div');
+	    	div.className = 'ClassicalYellow';
 
 			function reveal_for_element(element) {
 				let id = element.id || element.name;
@@ -87,12 +92,12 @@ a:hover {
 					let y = rect.top + window.scrollY;
 					if ( ! ( (x === 0) && (y === 0) )) {
 	                	// not on top, and really visible
-						let tag = shadow.createElement('a');
+						let tag = document.createElement('a');
 						tag.href = '#'+id;
 						tag.style.left = x+'px';
 						tag.style.top = y+'px';
 						tag.innerText = '#'+id;
-						shadow.appendChild(tag);
+						div.appendChild(tag);
 						has = true;
 					}
 				}
@@ -106,6 +111,7 @@ a:hover {
 			let has = false;
 			Array.from(document.querySelectorAll('[id], a[name]')).
 				forEach(reveal_for_element);
+
 			if (!has) {
 				on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 			}
@@ -117,7 +123,7 @@ a:hover {
 		if (!document.querySelector(TEMPLATE_SELECTOR)) {
 			let template = document.createElement('template');
 			template.id = LAYOUT_ID;
-			template.innerHTML = `<style scoped>${STYLE}</style>`;
+			template.innerHTML = `<style scoped>${STYLE}</style><div></div>`;
 			document.head.appendChild(template);
 		}
 
@@ -129,16 +135,22 @@ a:hover {
 
 	function destroy() {
         window.removeEventListener('resize', destroy, false);
+
+        if (session) {
+        	session.remove();
+        }
+
+        // elements created via a webextension doesn't seems to be accessible 
 		let container = document.getElementByTagName(LAYOUT_ID)[0];
         if (container) {
-            document.body.removeChild(container);
+            session.remove();
         } else {
            on_error('Failed to find container');
         }
 	}
 
 	function on_error(error) {
-	  	console.error(`Error in achors-reveal extension: ${error}`);
+	  	window.console.error(`Error in achors-reveal extension: ${error}`);
 	}
 
 /*

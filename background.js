@@ -60,7 +60,8 @@ function handleExecuteScriptAndInsertCSSErrors(tabId){
 
         let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
 
-        console.error(message);
+        window.console.error(message);
+        window.console.trace();
         // REALLY UGLY
         /*
         if((!isFirefox && message.indexOf && (message.indexOf('Cannot access a chrome:') > -1)) //Chrome
@@ -77,9 +78,8 @@ function handleExecuteScriptAndInsertCSSErrors(tabId){
 }
 
 function oops(e) {
-    console.error(e);
+    window.console.error(e);
 }
-
 
 let getting = browser.storage.local.get('menu');
 getting.then(instantiate_contextual_menu, oops);

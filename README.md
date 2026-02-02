@@ -9,7 +9,7 @@ Portage to WebExtension and some bug corrections : [Makyen](https://github.com/m
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 1.1
+Version : 1.3
 
 
 Reference links

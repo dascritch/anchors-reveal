@@ -3,7 +3,6 @@ import { switch_layer } from './anchors-reveal.js';
 /** TODO
  * 
  * Restore button action 
- * Restore menu action
  * 
  */
 
@@ -14,6 +13,11 @@ const script_to_call = {
 		file:'anchors-reveal.js'
 };
 const menu_id = 'anchors-reveal';
+const ICONS = {
+		16: "data/icon-16.png",
+		32: "data/icon-32.png",
+		64: "data/icon-64.png"
+};
 
 const THEMES = {
 	'ClassicalYellow' : {
@@ -34,36 +38,39 @@ const THEMES = {
 	},
 };
 
+
+
+const _menu_caller = (info,tab) => {listener(tab)}
 function add_contextual_menu() {
-	browser.menus.create({
+	if (browser.contextMenus.onClicked.hasListener(_menu_caller)) {
+		browser.contextMenus.onClicked.removeListener(_menu_caller);
+	}
+
+
+	browser.contextMenus.create({
 		id: menu_id,
 		title: browser.i18n.getMessage('buttonDescription'),
-		icons: {
-			16: "data/icon-16.png",
-			32: "data/icon-32.png"
-		}
+		icons: ICONS
 	});
-
-	browser.menus.onClicked.addListener(function(info, tab) {
-		if (info.menuItemId === menu_id) {
-			browser.tabs.executeScript(script_to_call);
-		}
-	});
+	browser.contextMenus.onClicked.addListener(_menu_caller);
 };
 
 // end import
 
 async function instantiate_contextual_menu(result) {
+	//if (result.menu) {
+		add_contextual_menu();
+	//}
+		/*
 	try {
 		await browser.menus.remove(menu_id);
 	} catch (Error) {
 		// It seems we cannot check if menu_id is really there before remove() it.
 		return;
 	}
+	*/
 
-	if (result.menu) {
-		add_contextual_menu();
-	}
+
 }
 
 /*
@@ -84,9 +91,7 @@ function oops(e) {
 }
 
 
-function listener(tab, OnClickData) {
-	window.console.info('browser.action.onClicked', {tab, OnClickData});
-
+function listener(tab, _) {
 	browser.scripting.executeScript({
 		func	: switch_layer,
 		target	: { tabId: tab.id },
@@ -106,16 +111,9 @@ function on_installed() {
 	}*/
 	browser.action.onClicked.addListener(listener)
 
-	/*
-	browser.contextMenus.create({
-		id: 'sampleContextMenu',
-		title: 'Sample Context Menu',
-		contexts: ['selection'],
-		// onclick: i => {}
-		});
 	let getting = browser.storage.local.get('menu');
 	getting.then(instantiate_contextual_menu, oops);
-	*/
+
 
 }
 

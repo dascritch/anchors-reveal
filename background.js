@@ -55,36 +55,7 @@ function add_contextual_menu() {
 	browser.contextMenus.onClicked.addListener(_menu_caller);
 };
 
-// end import
 
-async function instantiate_contextual_menu(result) {
-	//if (result.menu) {
-		add_contextual_menu();
-	//}
-		/*
-	try {
-		await browser.menus.remove(menu_id);
-	} catch (Error) {
-		// It seems we cannot check if menu_id is really there before remove() it.
-		return;
-	}
-	*/
-
-
-}
-
-/*
-//The following was modified from http://stackoverflow.com/a/40517692/3773011 Copied by the author of the post.
-function handleExecuteScriptAndInsertCSSErrors(tabId){
-	if (chrome.runtime.lastError){
-		let isFirefox = !!window.InstallTrigger;
-
-		let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
-
-		window.console.error(message);
-	}
-}
-*/
 
 function oops(e) {
 	window.console.error(e);
@@ -109,10 +80,8 @@ function on_installed() {
 		window.console.info('hasListener , clean up');
 		browser.action.onClicked.removeListener(listener)
 	}*/
-	browser.action.onClicked.addListener(listener)
-
-	let getting = browser.storage.local.get('menu');
-	getting.then(instantiate_contextual_menu, oops);
+	browser.action.onClicked.addListener(listener);
+	add_contextual_menu();
 
 
 }

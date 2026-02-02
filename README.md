@@ -19,8 +19,8 @@ Reference links
 * Blog post (FR) : <http://dascritch.net/post/2014/06/24/Sniffeur-d-ancre>
 
 
-Howto dev
----------
+How to dev
+----------
 
 To test your code, go in `about:debugging` and choose the project's `manifest.json`
 

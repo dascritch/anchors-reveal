@@ -39,22 +39,16 @@ const THEMES = {
 };
 
 
-
-const _menu_caller = (info,tab) => {listener(tab)}
 function add_contextual_menu() {
-	if (browser.contextMenus.onClicked.hasListener(_menu_caller)) {
-		browser.contextMenus.onClicked.removeListener(_menu_caller);
-	}
-
-
 	browser.contextMenus.create({
 		id: menu_id,
 		title: browser.i18n.getMessage('buttonDescription'),
 		icons: ICONS
 	});
-	browser.contextMenus.onClicked.addListener(_menu_caller);
+	browser.contextMenus.onClicked.addListener(
+		(_,tab) => { listener(tab); } // only one menu entry, no need to check
+	);
 };
-
 
 
 function oops(e) {

@@ -3,7 +3,6 @@
     "message": "Anchors Reveal",
     "description": "Name of the extension."
   },
-
   "extensionDescription": {
     "message": "Shows anchors in a webpage.",
     "description": "Description of the extension."

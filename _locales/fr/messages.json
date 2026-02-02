@@ -4,12 +4,12 @@
     "description": "Name of the extension."
   },
   "extensionDescription": {
-    "message": "Révèle les ancres dans une page web.",
+    "message": "Révèle les ancres dans une page web",
     "description": "Description of the extension."
   },
 
   "buttonDescription": {
-    "message": "Affiche/cache les ancres de la page.",
+    "message": "Affiche/cache les ancres de la page",
     "description": "Hover message for the toolbar."
   },
 

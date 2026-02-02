@@ -22,7 +22,7 @@ Reference links
 How to dev
 ----------
 
-To test your code, go in `about:debugging` and choose the project's `manifest.json`
+To test your code, go in `about:debugging`, tab “This Firefox” and choose the project's `manifest.json`
 
 
 Howto build
@@ -63,6 +63,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* February 2026 : 1.2, [Manifest v3](https://github.com/dascritch/anchors-reveal/issues/31)
 * February 2019 : 1.1, ported in WebComponent. Will help to isolate, keep page undisturbed
 * August 2017 : 0.8, now ported in WebExtension, thanks to [Makyen](https://github.com/makyen) ans everyone in the community
 * October 2016 : 0.7, will now accept old `a[name]` scheeme. Thanks [Aeris](https://github.com/aeris) for his patch. Hey ? Did I know you ?

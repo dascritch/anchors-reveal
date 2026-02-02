@@ -1,45 +1,36 @@
 {
-    "name"              : "__MSG_extensionName__",
-    "description"       : "__MSG_extensionDescription__",
-    "manifest_version"  : 2,
-    "version"           : "1.1",
-    "author"            : "Xavier “dascritch” Mouton-Dubosc",
-    "homepage_url"      : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
-    "default_locale"    : "en",
+	"name"              : "__MSG_extensionName__",
+	"description"       : "__MSG_extensionDescription__",
+	"manifest_version"  : 3,
+	"version"           : "1.2",
+	"author"            : "Xavier “dascritch” Mouton-Dubosc",
+	"homepage_url"      : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
+	"default_locale"    : "en",
 
-    "applications": {
-        "gecko": {
-            "id": "jid1-XX0TcCGBa7GVGw@jetpack",
-            "strict_min_version": "64.0"
-        }
-    },
+	"permissions": [
+		"activeTab",
+		"storage",
+		"contextMenus"
+	],
 
-    "permissions": [
-        "activeTab",
-        "storage",
-        "contextMenus"
-    ],
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
 
-    "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": false
-    },
+	"options_ui": {
+		"page": "options.html"
+	},
 
-    "options_ui": {
-        "page": "options.html"
-    },
-
-    "browser_action": {
-        "default_icon": {
-            "16"    : "/data/icon-16.png",
-            "32"    : "/data/icon-32.png",
-            "64"    : "/data/icon-64.png"
-        },
-        "browser_style": true,
-        "default_title": "__MSG_buttonDescription__"
-    }
+	"action": {
+		"default_icon": {
+			"16"    : "/data/icon-16.png",
+			"32"    : "/data/icon-32.png",
+			"64"    : "/data/icon-64.png"
+		},
+		"default_title": "__MSG_buttonDescription__"
+	}
 
 }
 

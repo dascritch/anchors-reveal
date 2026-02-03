@@ -1,5 +1,12 @@
 import { switch_layer } from './anchors-reveal.js';
 
+if (typeof browser === 'undefined') {
+	// Polyfill "browser" to "chrome" for chromium engines.
+	// See https://github.com/Rob--W/fosdem-2024-ext/blob/main/code-samples/script-on-click-1/background.js
+	globalThis.browser = chrome;
+}
+
+
 const script_to_call = {
 		file:'anchors-reveal.js'
 };
@@ -29,6 +36,7 @@ const THEMES = {
 	},
 };
 
+
 function feedback(output) {
 
 	if (output.length < 1) {
@@ -36,9 +44,9 @@ function feedback(output) {
 		return;
 	}
 	const {result} = output[0];
-	let theme = THEMES[result.theme ?? 'ClassicalYellow'];
+	let theme = THEMES[result?.theme ?? 'ClassicalYellow'];
 	browser.action.setBadgeText({ text:
-		result.displayed ? String(result.count_tags) : null
+		result?.displayed ? String(result.count_tags) : null
 	});
 	browser.action.setBadgeBackgroundColor({ color:theme.background });
 	browser.action.setBadgeTextColor({ color:theme.color });
@@ -82,7 +90,6 @@ async function on_installed() {
 	browser.contextMenus.create({
 		id: menu_id,
 		title: browser.i18n.getMessage('buttonDescription'),
-		icons: ICONS
 	});
 	install_event_act(browser.contextMenus.onClicked, menu_listener);
 }

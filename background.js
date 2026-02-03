@@ -29,12 +29,29 @@ const THEMES = {
 	},
 };
 
+function feedback(output) {
+
+	if (output.length < 1) {
+		console.error('problem in feedback', {output})
+		return;
+	}
+	const {result} = output[0];
+	console.log(result)
+	let theme = THEMES[result.theme ?? 'ClassicalYellow'];
+	browser.action.setBadgeText({ text:
+		result.displayed ? String(result.count_tags) : null
+	});
+	browser.action.setBadgeBackgroundColor({ color:theme.background });
+	browser.action.setBadgeTextColor({ color:theme.color });
+}
+
 function listener(tab, _) {
+
 	browser.scripting.executeScript({
 		func	: switch_layer,
 		target	: { tabId: tab.id },
 		world	: 'ISOLATED'
-	});
+	}).then(feedback).catch(e => console.error(e));
 }
 
 function menu_listener(_, tab) {

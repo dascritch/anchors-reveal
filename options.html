@@ -4,6 +4,18 @@
 <head>
 	<meta charset="utf-8">
 	<script defer async src="./options.js"></script>
+	<style>
+		/* re use Firefox theme */
+		:root {
+			color-scheme: light dark;
+		}
+		body {
+			color: var(--text-color);
+			background-color: var(--background-color-canvas);
+			font: message-box;
+		}
+
+	</style>
 </head>
 
 <body>
@@ -47,6 +59,17 @@
 					color : white;
 				}
 
+				#shortcut kbd {
+					display : inline-block;
+					margin : 4px;
+					padding : 4px;
+					color : var(--text-color);
+					border: var(--text-color) 2px;
+					border-radius: 2px;
+					text-decoration: none;
+
+				}
+
 			</style>
 
 			<p>
@@ -77,8 +100,8 @@
 
 		<fieldset>
 			<legend>Keyboard</legend>
-			<p>
-				<a id="shortcut" href="#">Shortcut : By default <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> (click here to change)</a>
+			<p id="shortcut">
+				Shortcut : By default <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> <button type="button">click here to change</button>
 			</p>
 		</fieldset>
 

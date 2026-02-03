@@ -101,8 +101,7 @@ function restoreOptions() {
 
 
 	form_parameters = document.getElementById('anchors-reveal-parameters');
-
-	form_parameters.querySelector('#shortcut').addEventListener('click', _ => browser.commands.openShortcutSettings())
+	form_parameters.querySelector('#shortcut button').addEventListener('click', _ => browser.commands.openShortcutSettings())
 
 	form_parameters.addEventListener('input', saveOptions);
 

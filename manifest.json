@@ -34,6 +34,12 @@
 		"page": "options.html"
 	},
 
+	"icons" : {
+			"16"    : "data/icon-16.png",
+			"32"    : "data/icon-32.png",
+			"64"    : "data/icon-64.png"
+		},
+
 	"action": {
 		"default_area" : "navbar",
 		"default_icon": {

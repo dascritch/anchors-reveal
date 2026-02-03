@@ -44,6 +44,15 @@ function feedback(output) {
 	browser.action.setBadgeTextColor({ color:theme.color });
 }
 
+function denied_action(e) {
+	console.error(`Anchors-reveal action is not available here: ${e}`)
+	// may be trigerred by a security feature
+	browser.action.setBadgeBackgroundColor({ color:'transparent' });
+	browser.action.setBadgeTextColor({ color:'red' });
+	browser.action.setBadgeText({ text: '⛔'});
+
+}
+
 function listener(tab, _) {
 
 	browser.scripting.executeScript({
@@ -51,7 +60,7 @@ function listener(tab, _) {
 		args	: [browser.i18n.getMessage('noIdMessage')],
 		target	: { tabId: tab.id },
 		world	: 'ISOLATED'
-	}).then(feedback).catch(e => console.error(e));
+	}).then(feedback).catch(denied_action);
 }
 
 function menu_listener(_, tab) {

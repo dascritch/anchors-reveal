@@ -37,8 +37,6 @@ Todo
 ----
 See <https://github.com/dascritch/anchors-reveal/issues>
 
-
- * [A visual feedback when Mozilla's security policies avoid Js injection](https://github.com/dascritch/anchors-reveal/issues/37)
  * Original logo in SVG
 
 

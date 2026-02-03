@@ -1,53 +1,53 @@
 {
-  "extensionName": {
-    "message": "Anchors Reveal",
-    "description": "Name of the extension."
-  },
-  "extensionDescription": {
-    "message": "Shows anchors in a webpage",
-    "description": "Description of the extension."
-  },
+	"extensionName": {
+		"message": "Anchors Reveal",
+		"description": "Name of the extension."
+	},
+	"extensionDescription": {
+		"message": "Shows anchors in a webpage",
+		"description": "Description of the extension."
+	},
 
-  "buttonDescription": {
-    "message": "Show/hide anchors in the webpage",
-    "description": "Hover message for the toolbar."
-  },
+	"buttonDescription": {
+		"message": "Show/hide anchors in the webpage",
+		"description": "Hover message for the toolbar."
+	},
 
-   "themeParameterDescription": {
-    "message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
-    "description": "Theme chooser description."
-  },
-
-
-   "themeNamedClassicalYellow": {
-    "message": "Classical Yellow",
-    "description": "Theme description for value ClassicalYellow."
-  },
-     "themeNamedLightBlue": {
-    "message": "Light Blue",
-    "description": "Theme description for value LightBlue."
-  },
-     "themeNamedWhitePaper": {
-    "message": "White Paper",
-    "description": "Theme description for value WhitePaper."
-  },
-  "themeNamedGothicAddict": {
-    "message": "Gothic Addict",
-    "description": "Theme description for value GothicAddict."
-  },
+	 "themeParameterDescription": {
+		"message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
+		"description": "Theme chooser description."
+	},
 
 
-  "cumbersomeParametersDescription": {
-    "message": "Really optionnal so-called features",
-    "description": "Cluncky options description."
-  },
-  "checkContextMenu": {
-    "message": "Add a contextual menu entry",
-    "description": "Option to add a context menu entry"
-  },
-  "checkSidebar": {
-    "message": "Open a sidebar",
-    "description": "Option to open a sidebar."
-  }
+	 "themeNamedClassicalYellow": {
+		"message": "Classical Yellow",
+		"description": "Theme description for value ClassicalYellow."
+	},
+		 "themeNamedLightBlue": {
+		"message": "Light Blue",
+		"description": "Theme description for value LightBlue."
+	},
+		 "themeNamedWhitePaper": {
+		"message": "White Paper",
+		"description": "Theme description for value WhitePaper."
+	},
+	"themeNamedGothicAddict": {
+		"message": "Gothic Addict",
+		"description": "Theme description for value GothicAddict."
+	},
+
+
+	"cumbersomeParametersDescription": {
+		"message": "Really optionnal so-called features",
+		"description": "Cluncky options description."
+	},
+	"checkContextMenu": {
+		"message": "Add a contextual menu entry",
+		"description": "Option to add a context menu entry"
+	},
+	"checkSidebar": {
+		"message": "Open a sidebar",
+		"description": "Option to open a sidebar."
+	}
 
 }

@@ -19,7 +19,7 @@
 	},
 
 	 "themeParameterDescription": {
-		"message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
+		"message": "Choose a theme color for the revealed anchors",
 		"description": "Theme chooser description."
 	},
 

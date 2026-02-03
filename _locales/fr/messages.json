@@ -14,7 +14,7 @@
 	},
 
 	"themeParameterDescription": {
-		"message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
+		"message": "Choisissez un thème graphique pour les ancres révélées",
 		"description": "Theme chooser description."
 	},
 	"noIdMessage": {

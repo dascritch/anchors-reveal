@@ -9,6 +9,7 @@
  * I coded it as strictly independant from Firefox, so you can re-use it
  */
 
+
 export async function switch_layer(noIdMessage) {
 	/*  /!\ Important : as this function will be inserted serialized, no external value or function must be used */
 

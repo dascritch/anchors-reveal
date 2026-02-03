@@ -107,7 +107,7 @@ function restoreOptions() {
 
 	// Yes, lazy i18n procedures, as nothing can be done in HTML code (but you can in CSS)
 	var legends = form_parameters.querySelectorAll('legend') 
-	legends[0].innerHTML = browser.i18n.getMessage('themeParameterDescription');
+	legends[0].innerText = browser.i18n.getMessage('themeParameterDescription');
 	legends[1].innerText = browser.i18n.getMessage('cumbersomeParametersDescription');
 
 	Array.from(form_parameters.querySelectorAll('input[type="radio"]')).

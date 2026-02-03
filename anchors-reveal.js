@@ -100,10 +100,14 @@ export async function switch_layer(noIdMessage) {
 			`;
 
 		let shadow = container.attachShadow({mode: "open"});
-		shadow.innerHTML = `<style scoped>${STYLE}</style><div></div>`;
+		const style_element = document.createElement('style');
+		style_element.scoped = true;
+		style_element.innerText = STYLE;
+		shadow.appendChild(style_element);
 
-		let div = shadow.querySelector('div');
+		const div = document.createElement('div');
 		div.className = theme;
+		shadow.appendChild(div);
 
 		Array.from(document.querySelectorAll('[id], a[name]')).
 			forEach(reveal_for_element);

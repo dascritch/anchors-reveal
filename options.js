@@ -22,6 +22,7 @@ var THEMES = {
 	},
 };
 
+/*
 function add_contextual_menu() {
 	browser.contextMenus.create({
 	  id: menu_id,
@@ -35,7 +36,7 @@ function add_contextual_menu() {
 
 	browser.contextMenus.onClicked.addListener(function(info, tab) {
 	  if (info.menuItemId === menu_id) {
-		browser.tabs.executeScript(script_to_call);
+		browser.scripting.executeScript(script_to_call);
 	  }
 	});
 };
@@ -54,7 +55,7 @@ function update_contextual_menu(entry) {
 		}
 	}
 }
-
+*/
 
 let form_parameters;
 
@@ -66,7 +67,7 @@ function saveOptions(event) {
 		menu: form_parameters.menu.checked,
 		//sidebar: form_parameters.sidebar.checked
 	});
-	update_contextual_menu( form_parameters.menu.checked );
+	//update_contextual_menu( form_parameters.menu.checked );
 }
 
 function restoreOptions() {
@@ -104,6 +105,7 @@ function restoreOptions() {
 	form_parameters.querySelector('#shortcut button').addEventListener('click', _ => browser.commands.openShortcutSettings())
 
 	form_parameters.addEventListener('input', saveOptions);
+	form_parameters.addEventListener('change', saveOptions);
 
 	// Yes, lazy i18n procedures, as nothing can be done in HTML code (but you can in CSS)
 	var legends = form_parameters.querySelectorAll('legend') 
@@ -129,4 +131,5 @@ function restoreOptions() {
 
 }
 
+restoreOptions();
 document.addEventListener('DOMContentLoaded', restoreOptions);

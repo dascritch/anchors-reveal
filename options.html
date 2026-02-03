@@ -2,78 +2,85 @@
 
 <html>
 <head>
-    <meta charset="utf-8">
-    <script defer async src="./options.js"></script>
+	<meta charset="utf-8">
+	<script defer async src="./options.js"></script>
 </head>
 
 <body>
 
-    <form id="anchors-reveal-parameters">
-        <fieldset id="themes">
-            <legend>Choose a theme color for the <del>sticky notes</del> revealed anchors</legend>
+	<form id="anchors-reveal-parameters">
+		<fieldset id="themes">
+			<legend>Choose a theme color for the <del>sticky notes</del> revealed anchors</legend>
 
-            <style scoped>
-                #themes span {
-                    font-family : sans-serif ;
-                    font-size : 14px ;
-                    font-weight : bold;
-                    padding : 4px ;
-                    border : 1px black solid ;
-                    opacity : 0.7 ;
-                    pointer-events : auto;
-                }
-                #themes label:hover span {
-                    opacity : 1 ;
-                    color : black;
-                }
-            </style>
+			<style scoped>
+				#themes span {
+					font-family : sans-serif ;
+					font-size : 14px ;
+					font-weight : bold;
+					padding : 4px ;
+					border : 1px black solid ;
+					opacity : 0.7 ;
+					pointer-events : auto;
+				}
+				#themes label:hover span {
+					opacity : 1 ;
+					color : black;
+				}
+			</style>
 
-            <p>
-                <label>
-                    <input type="radio" name="theme" value="ClassicalYellow" />
-                    <span>Classical yellow</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="radio" name="theme" value="LightBlue" />
-                    <span>Light blue</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="radio" name="theme" value="WhitePaper" />
-                    <span>White paper</span>
-              </label>
-            </p>
-            <p>
-                <label>
-                    <input type="radio" name="theme" value="GothicAddict" />
-                    <span>Gothic addict</span>
-                </label>
-            </p>
-        </fieldset>
+			<p>
+				<label>
+					<input type="radio" name="theme" value="ClassicalYellow" />
+					<span>Classical yellow</span>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="radio" name="theme" value="LightBlue" />
+					<span>Light blue</span>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="radio" name="theme" value="WhitePaper" />
+					<span>White paper</span>
+			  </label>
+			</p>
+			<p>
+				<label>
+					<input type="radio" name="theme" value="GothicAddict" />
+					<span>Gothic addict</span>
+				</label>
+			</p>
+		</fieldset>
 
-        <fieldset>
-            <legend>Not so useful features</legend>
-            <p>
-                <label>
-                    <input type="checkbox" name="menu" value="1" />
-                    <span>Add a contextual menu entry</span>
-                </label>
-            </p>
-        
-            <!--
-            <p>
-                <label>
-                    <input type="checkbox" name="sidebar" value="1" />
-                    <span>Open the sidebar</span>
-                </label>
-            </p>
-            -->
-        
-        </fieldset>
+		<fieldset>
+			<legend>Keyboard</legend>
+			<p>
+				Shortcut : <code id="shortcut"></code>
+			</p>
+		</fieldset>
 
-    </form>
+		<fieldset>
+			<legend>Not so useful features</legend>
+			<p>
+				<label>
+					<input type="checkbox" name="menu" value="1" />
+					<span>Add a contextual menu entry</span>
+				</label>
+			</p>
+		
+			<!--
+			<p>
+				<label>
+					<input type="checkbox" name="sidebar" value="1" />
+					<span>Open the sidebar</span>
+				</label>
+			</p>
+			-->
+		
+		</fieldset>
+
+	</form>
 </body>
 </html>

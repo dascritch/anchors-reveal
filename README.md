@@ -5,7 +5,7 @@ Anchors reveal
 To install latest stable and validated version, [go directly to its Mozilla addon page](https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/)
 
 Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
-Portage to WebExtension and some bug corrections : [Makyen](https://github.com/makyen)
+Portage to WebExtension and some bug corrections : [Makyen](https://github.com/makyen) and [joggee-fr](https://github.com/joggee-fr)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
@@ -63,7 +63,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
-* February 2026 : 1.2, [Manifest v3](https://github.com/dascritch/anchors-reveal/issues/31)
+* February 2026 : 1.3, [Manifest v3](https://github.com/dascritch/anchors-reveal/issues/31)
 * February 2019 : 1.1, ported in WebComponent. Will help to isolate, keep page undisturbed
 * August 2017 : 0.8, now ported in WebExtension, thanks to [Makyen](https://github.com/makyen) ans everyone in the community
 * October 2016 : 0.7, will now accept old `a[name]` scheeme. Thanks [Aeris](https://github.com/aeris) for his patch. Hey ? Did I know you ?

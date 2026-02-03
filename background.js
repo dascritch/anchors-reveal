@@ -1,3 +1,4 @@
+import { menu_id, THEMES, default_theme } from './lib.js';
 import { switch_layer } from './anchors-reveal.js';
 
 if (typeof browser === 'undefined') {
@@ -6,47 +7,24 @@ if (typeof browser === 'undefined') {
 	globalThis.browser = chrome;
 }
 
-
-const script_to_call = {
-		file:'anchors-reveal.js'
-};
-const menu_id = 'anchors-reveal';
-const ICONS = {
-		"16": "data/icon-16.png",
-		"32": "data/icon-32.png",
-		"64": "data/icon-64.png"
-};
-
-const THEMES = {
-	'ClassicalYellow' : {
-		background : 'yellow',
-		color : 'black'
-	},
-	'LightBlue'  : {
-		background : '#aaf',
-		color : 'black'
-	},
-	'WhitePaper' : {
-		background : 'white',
-		color : 'black'
-	},
-	'GothicAddict' : {
-		background : 'black',
-		color : 'white'
-	},
-};
-
-
 function feedback(output) {
 
-	if (output.length < 1) {
-		console.error('problem in feedback', {output})
+	if ((output.length < 1) || (output[0] === undefined)) {
+		throw Error(`Anchors-reveal had an issue : ${output}`);
 		return;
 	}
-	const {result} = output[0];
-	let theme = THEMES[result?.theme ?? 'ClassicalYellow'];
+	console.info({output})
+
+	const {result, error} = output[0];
+
+	if (error) {
+		throw Error(`Anchors-reveal had an error : ${error}`);
+		return
+	}
+
+	let theme = THEMES[result.theme ?? default_theme];
 	browser.action.setBadgeText({ text:
-		result?.displayed ? String(result.count_tags) : null
+		result.displayed ? String(result.count_tags) : null
 	});
 	browser.action.setBadgeBackgroundColor({ color:theme.background });
 	browser.action.setBadgeTextColor({ color:theme.color });
@@ -58,7 +36,6 @@ function denied_action(e) {
 	browser.action.setBadgeBackgroundColor({ color:'transparent' });
 	browser.action.setBadgeTextColor({ color:'red' });
 	browser.action.setBadgeText({ text: '⛔'});
-
 }
 
 function listener(tab, _) {

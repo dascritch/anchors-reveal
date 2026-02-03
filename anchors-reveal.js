@@ -79,7 +79,7 @@ export async function switch_layer(noIdMessage) {
 				let rect = element.getBoundingClientRect();
 				let x = rect.left + window.scrollX;
 				let y = rect.top + window.scrollY;
-				if ( ! ( (x === 0) && (y === 0) )) {
+				if ((x != 0) || (y != 0)) {
 					// not on top, and really visible
 					let tag = document.createElement('a');
 					tag.href = '#'+id;

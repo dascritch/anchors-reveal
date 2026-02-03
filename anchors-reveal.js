@@ -9,7 +9,7 @@
  * I coded it as strictly independant from Firefox, so you can re-use it
  */
 
-export function switch_layer() {
+export async function switch_layer() {
 	/*  /!\ Important : as this function will be inserted serialized, no external value or function must be used */
 
 	let count_tags = 0;
@@ -91,21 +91,19 @@ export function switch_layer() {
 				}
 			}
 		}
-		console.log('build_layer')
-
 
 		let container = document.createElement(LAYOUT_ID);
 		document.body.appendChild(container);
+		container.style = `
+			width : ${document.body.scrollWidth}px;
+			height : ${document.body.scrollHeight}px;
+			`;
+
 		let shadow = container.attachShadow({mode: "open"});
 		shadow.innerHTML = `<style scoped>${STYLE}</style><div></div>`;
 
 		let div = shadow.querySelector('div');
 		div.className = theme;
-
-		container.style = `
-			width : ${document.body.scrollWidth}px;
-			height : ${document.body.scrollHeight}px;
-			`;
 
 		Array.from(document.querySelectorAll('[id], a[name]')).
 			forEach(reveal_for_element);
@@ -122,29 +120,22 @@ export function switch_layer() {
 	}
 
 	function on_got_parameters(result) {
-		window.console.log('on_got_parameters')
-
 		theme = result.theme;
 		build_layer();
 		window.removeEventListener('resize', destroy, false);
 	}
 
-	function display_layer() {
-		console.log('display_layer')
-
-		let getting_storage = browser.storage.local.get('theme');
-		getting_storage.then(on_got_parameters, on_error);
+	async function display_layer() {
+		let getting_storage = await browser.storage.local.get('theme');
+		on_got_parameters(getting_storage);
 	}
 
 	function destroy() {
 		container?.remove();
 	}
 
-	window.console.info('called', {container})
-
-	
 	if (container === null) {
-		display_layer();
+		await display_layer();
 	} else {
 		destroy();
 	}

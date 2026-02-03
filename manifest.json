@@ -22,7 +22,6 @@
 		"storage",
 		"contextMenus"
 	],
-	"optional_permissions": ["*://mozilla.org/*", "about:*"],
 
 	"background": {
 		"scripts": [

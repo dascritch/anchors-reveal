@@ -101,6 +101,9 @@ function restoreOptions() {
 
 
 	form_parameters = document.getElementById('anchors-reveal-parameters');
+
+	form_parameters.querySelector('#shortcut').addEventListener('click', _ => browser.commands.openShortcutSettings())
+
 	form_parameters.addEventListener('input', saveOptions);
 
 	// Yes, lazy i18n procedures, as nothing can be done in HTML code (but you can in CSS)

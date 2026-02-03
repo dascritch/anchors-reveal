@@ -67,7 +67,7 @@ function saveOptions(event) {
 		menu: form_parameters.menu.checked,
 		//sidebar: form_parameters.sidebar.checked
 	});
-	update_contextual_menu( form_parameters.menu.checked );
+	//update_contextual_menu( form_parameters.menu.checked );
 }
 
 function restoreOptions() {

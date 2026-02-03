@@ -27,9 +27,9 @@ function add_contextual_menu() {
 	  id: menu_id,
 	  title: browser.i18n.getMessage('buttonDescription'),
 	  icons: {
-		16: "data/icon-16.png",
-		32: "data/icon-32.png",
-		64: "data/icon-64.png"
+		"16": "data/icon-16.png",
+		"32": "data/icon-32.png",
+		"64": "data/icon-64.png"
 	  }
 	});
 
@@ -56,7 +56,7 @@ function update_contextual_menu(entry) {
 }
 
 
-var form_parameters;
+let form_parameters;
 
 
 function saveOptions(event) {
@@ -72,18 +72,18 @@ function saveOptions(event) {
 function restoreOptions() {
 
 	function setCurrentThemeChoice(result) {
-		var theme_restored = result.theme || "ClassicalYellow";
+		const theme_restored = result.theme || "ClassicalYellow";
 		form_parameters.querySelector(`input[name="theme"][value="${theme_restored}"]`).checked = true;
 	}
 
 	function setCurrentMenuChoice(result) {
-		var is_menu = result.menu || false;
+		const is_menu = result.menu || false;
 		form_parameters.querySelector('input[name="menu"]').checked = is_menu;
 	}
 
 	/*
 	function setCurrentSidebarChoice(result) {
-		var is_sidebar = result.sidebar || false;
+		const is_sidebar = result.sidebar || false;
 		form_parameters.querySelector('input[name="sidebar"]').checked = is_sidebar;
 	}
 	*/
@@ -92,15 +92,12 @@ function restoreOptions() {
 		console.log(`Error: ${error}`);
 	}
 
+
 	// BEEEEH , needs refactoring
-	var getting = browser.storage.local.get('theme');
-	getting.then(setCurrentThemeChoice, onError);
+	browser.storage.local.get('theme').then(setCurrentThemeChoice, onError);
+	browser.storage.local.get('menu').then(setCurrentMenuChoice, onError);
 
-	var getting = browser.storage.local.get('menu');
-	getting.then(setCurrentMenuChoice, onError);
-
-	//var getting = browser.storage.local.get('sidebar');
-	//getting.then(setCurrentSidebarChoice, onError);
+	//browser.storage.local.get('sidebar').then(setCurrentSidebarChoice, onError);
 
 
 	form_parameters = document.getElementById('anchors-reveal-parameters');

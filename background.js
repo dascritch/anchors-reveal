@@ -1,76 +1,82 @@
-// import {THEMES, add_contextual_menu} from 'lib';
+import { switch_layer } from './anchors-reveal.js';
 
-var script_to_call = {file:'anchors-reveal.js'};
-var menu_id = 'anchors-reveal';
-
-var THEMES = {
-    'ClassicalYellow' : {
-        background : 'yellow',
-        color : 'black'
-    },
-    'LightBlue'  : {
-        background : '#aaf',
-        color : 'black'
-    },
-    'WhitePaper' : {
-        background : 'white',
-        color : 'black'
-    },
-    'GothicAddict' : {
-        background : 'black',
-        color : 'white'
-    },
+const script_to_call = {
+		file:'anchors-reveal.js'
+};
+const menu_id = 'anchors-reveal';
+const ICONS = {
+		"16": "data/icon-16.png",
+		"32": "data/icon-32.png",
+		"64": "data/icon-64.png"
 };
 
-function add_contextual_menu() {
-    browser.contextMenus.create({
-      id: menu_id,
-      title: browser.i18n.getMessage('buttonDescription'),
-      icons: {
-        '16': "data/icon-16.png",
-        '32': "data/icon-32.png"
-      }
-    });
-
-    browser.contextMenus.onClicked.addListener(function(info, tab) {
-      if (info.menuItemId === menu_id) {
-        browser.tabs.executeScript(script_to_call);
-      }
-    });
+const THEMES = {
+	'ClassicalYellow' : {
+		background : 'yellow',
+		color : 'black'
+	},
+	'LightBlue'  : {
+		background : '#aaf',
+		color : 'black'
+	},
+	'WhitePaper' : {
+		background : 'white',
+		color : 'black'
+	},
+	'GothicAddict' : {
+		background : 'black',
+		color : 'white'
+	},
 };
 
-// end import
+function feedback(output) {
 
-function instantiate_contextual_menu(result) {
-    if (result.menu) {
-        add_contextual_menu();
-    } else {
-        try {
-            browser.contextMenus.remove(menu_id);
-        }  catch (e) {
-
-        }
-    }
+	if (output.length < 1) {
+		console.error('problem in feedback', {output})
+		return;
+	}
+	const {result} = output[0];
+	let theme = THEMES[result.theme ?? 'ClassicalYellow'];
+	browser.action.setBadgeText({ text:
+		result.displayed ? String(result.count_tags) : null
+	});
+	browser.action.setBadgeBackgroundColor({ color:theme.background });
+	browser.action.setBadgeTextColor({ color:theme.color });
 }
 
-//The following was modified from http://stackoverflow.com/a/40517692/3773011 Copied by the author of the post.
-function handleExecuteScriptAndInsertCSSErrors(tabId){
-    if (chrome.runtime.lastError){
-        let isFirefox = !!window.InstallTrigger;
+function listener(tab, _) {
 
-        let message = chrome.runtime.lastError.message ? chrome.runtime.lastError : chrome.runtime.lastError.message;
-
-        window.console.error(message);
-    }
+	browser.scripting.executeScript({
+		func	: switch_layer,
+		args	: [browser.i18n.getMessage('noIdMessage')],
+		target	: { tabId: tab.id },
+		world	: 'ISOLATED'
+	}).then(feedback).catch(e => console.error(e));
 }
 
-function oops(e) {
-    window.console.error(e);
+function menu_listener(_, tab) {
+	// only one menu entry, no need to check
+	listener(tab);
 }
 
-let getting = browser.storage.local.get('menu');
-getting.then(instantiate_contextual_menu, oops);
+function install_event_act(event, act) {
+	if (event.hasListener(act)) {
+		event.removeListener(act)
+	}
+	event.addListener(act);
+}
 
-chrome.browserAction.onClicked.addListener(function(tab){
-    chrome.tabs.executeScript(tab.id, script_to_call, handleExecuteScriptAndInsertCSSErrors);
-});
+async function on_installed() {
+	install_event_act(browser.action.onClicked, listener);
+	browser.contextMenus.remove(menu_id).catch(e => {});
+
+	browser.contextMenus.create({
+		id: menu_id,
+		title: browser.i18n.getMessage('buttonDescription'),
+		icons: ICONS
+	});
+	install_event_act(browser.contextMenus.onClicked, menu_listener);
+}
+
+on_installed();
+browser.runtime.onInstalled.addListener(on_installed);

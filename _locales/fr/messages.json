@@ -1,52 +1,55 @@
 {
-  "extensionName": {
-    "message": "Anchors Reveal",
-    "description": "Name of the extension."
-  },
-  "extensionDescription": {
-    "message": "Révèle les ancres dans une page web.",
-    "description": "Description of the extension."
-  },
+	"extensionName": {
+		"message": "Anchors Reveal",
+		"description": "Name of the extension."
+	},
+	"extensionDescription": {
+		"message": "Révèle les ancres dans une page web",
+		"description": "Description of the extension."
+	},
 
-  "buttonDescription": {
-    "message": "Affiche/cache les ancres de la page.",
-    "description": "Hover message for the toolbar."
-  },
+	"buttonDescription": {
+		"message": "Affiche/cache les ancres de la page",
+		"description": "Hover message for the toolbar."
+	},
 
-  "themeParameterDescription": {
-    "message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
-    "description": "Theme chooser description."
-  },
+	"themeParameterDescription": {
+		"message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
+		"description": "Theme chooser description."
+	},
+	"noIdMessage": {
+		"message": "Le code HTML de cette page n'utilise pas de tags avec ID. Essayez d'utiliser cette solution alternative : Sélectionnez du texte de la page, faites un clic droit et dans le menu contextuel, choisissez “Copy Link to Highlight”",
+		"description": "No ID tag on this page"
+	},
 
+	 "themeNamedClassicalYellow": {
+		"message": "Jaune traditionnel",
+		"description": "Theme description for value ClassicalYellow."
+	},
+		 "themeNamedLightBlue": {
+		"message": "Bleu léger",
+		"description": "Theme description for value LightBlue."
+	},
+		 "themeNamedWhitePaper": {
+		"message": "Feuille blanche",
+		"description": "Theme description for value WhitePaper."
+	},
+		 "themeNamedGothicAddict": {
+		"message": "Gothique pratiquant",
+		"description": "Theme description for value GothicAddict."
+	},
 
-   "themeNamedClassicalYellow": {
-    "message": "Jaune traditionnel",
-    "description": "Theme description for value ClassicalYellow."
-  },
-     "themeNamedLightBlue": {
-    "message": "Bleu léger",
-    "description": "Theme description for value LightBlue."
-  },
-     "themeNamedWhitePaper": {
-    "message": "Feuille blanche",
-    "description": "Theme description for value WhitePaper."
-  },
-     "themeNamedGothicAddict": {
-    "message": "Gothique pratiquant",
-    "description": "Theme description for value GothicAddict."
-  },
-
-  "cumbersomeParametersDescription": {
-    "message": "Options vraiment très optionnelles",
-    "description": "Cluncky options description."
-  },
-  "checkContextMenu": {
-    "message": "Ajoute une entrée au menu contextuel",
-    "description": "Option to add a context menu entry"
-  },
-  "checkSidebar": {
-    "message": "Ouvre une barre latérale",
-    "description": "Option to open a sidebar."
-  }
+	"cumbersomeParametersDescription": {
+		"message": "Options vraiment très optionnelles",
+		"description": "Cluncky options description."
+	},
+	"checkContextMenu": {
+		"message": "Ajoute une entrée au menu contextuel",
+		"description": "Option to add a context menu entry"
+	},
+	"checkSidebar": {
+		"message": "Ouvre une barre latérale",
+		"description": "Option to open a sidebar."
+	}
 
 }

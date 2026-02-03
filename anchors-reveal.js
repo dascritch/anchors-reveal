@@ -9,7 +9,7 @@
  * I coded it as strictly independant from Firefox, so you can re-use it
  */
 
-export async function switch_layer() {
+export async function switch_layer(noIdMessage) {
 	/*  /!\ Important : as this function will be inserted serialized, no external value or function must be used */
 
 	let count_tags = 0;
@@ -111,6 +111,9 @@ export async function switch_layer() {
 		if (count_tags === 0) {
 			on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 			// message on screen : "no id, try contextual menu “copy to highlight” instead"
+			let tag = document.createElement('a');
+			tag.innerText = noIdMessage;
+			div.appendChild(tag);
 		}
 		displayed = true;
 	}

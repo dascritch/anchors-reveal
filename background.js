@@ -36,7 +36,6 @@ function feedback(output) {
 		return;
 	}
 	const {result} = output[0];
-	console.log(result)
 	let theme = THEMES[result.theme ?? 'ClassicalYellow'];
 	browser.action.setBadgeText({ text:
 		result.displayed ? String(result.count_tags) : null
@@ -49,6 +48,7 @@ function listener(tab, _) {
 
 	browser.scripting.executeScript({
 		func	: switch_layer,
+		args	: [browser.i18n.getMessage('noIdMessage')],
 		target	: { tabId: tab.id },
 		world	: 'ISOLATED'
 	}).then(feedback).catch(e => console.error(e));

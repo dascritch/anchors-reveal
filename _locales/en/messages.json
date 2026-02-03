@@ -13,6 +13,11 @@
 		"description": "Hover message for the toolbar."
 	},
 
+	"noIdMessage": {
+		"message": "The HTML code of this page isn't using any ID tag. Please try this alternate solution : Select some text in the page, then right-click on it, then select in the context menu “Copy Link to Highlight”",
+		"description": "No ID tag on this page"
+	},
+
 	 "themeParameterDescription": {
 		"message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
 		"description": "Theme chooser description."

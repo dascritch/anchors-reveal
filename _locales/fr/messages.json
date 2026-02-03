@@ -17,7 +17,10 @@
 		"message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
 		"description": "Theme chooser description."
 	},
-
+	"noIdMessage": {
+		"message": "Le code HTML de cette page n'utilise pas de tags avec ID. Essayez d'utiliser cette solution alternative : Sélectionnez du texte de la page, faites un clic droit et dans le menu contextuel, choisissez “Copy Link to Highlight”",
+		"description": "No ID tag on this page"
+	},
 
 	 "themeNamedClassicalYellow": {
 		"message": "Jaune traditionnel",

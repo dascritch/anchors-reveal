@@ -7,6 +7,14 @@
 	"author"            : "Xavier “dascritch” Mouton-Dubosc",
 	"homepage_url"      : "https://dascritch.net/post/2014/06/24/Sniffeur-d-ancre",
 	"default_locale"    : "en",
+	"browser_specific_settings": {
+  		"gecko": {
+			"id": "jid1-XX0TcCGBa7GVGw@jetpack",
+			"data_collection_permissions": {
+				"required": ["websiteContent"]
+			}
+		}
+	},
 
 	"permissions": [
 		"activeTab",

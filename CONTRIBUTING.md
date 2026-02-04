@@ -3,7 +3,7 @@ If you are not a developer
 
  - My english is a pity. You may help me to correct it.
  - You can re-read my doc, and ask me some precisions.
- - You may be have a disability and you're using some accessibility tools… You're super useful ! For sure, I missed something important for you.
+ - You may be have a disability and you're using some accessibility tools… You're super useful ! For sure, I missed something important for you. By example : should the webext layer at first in tab navigation before the website content ?
  - Perhaps you can help me on translations, the design or the logos.
  - Install in your own website, test, note the bugs, [report them in the issues section of the repo](https://github.com/dascritch/anchors-reveal/issues).
 

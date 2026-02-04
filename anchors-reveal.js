@@ -73,7 +73,7 @@ export async function switch_layer(noIdMessage) {
 
 	function build_layer() {
 		function reveal_for_element(element) {
-			let id = element.id || element.name;
+			const {id} = element;
 			if (
 				valid_id.test(id) // not malicious ?
 			) {
@@ -110,9 +110,10 @@ export async function switch_layer(noIdMessage) {
 		div.className = theme;
 		shadow.appendChild(div);
 
-		Array.from(document.querySelectorAll('[id], a[name]')).
+		Array.from(document.querySelectorAll('[id]')).
 			forEach(reveal_for_element);
 
+		
 		if (count_tags === 0) {
 			on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
 			// message on screen : "no id, try contextual menu “copy to highlight” instead"

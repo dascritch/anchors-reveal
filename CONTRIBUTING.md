@@ -10,6 +10,7 @@ If you are not a developer
 If you are a developer
 ----------------------
 
+ - We work mainly for Firefox (MV3) first. Creation of a Chrome version is to do next.
  - Clone the project, use the `dev` branch and merge into it
  - Always prefer any W3C standards instead of create something.
  - Think about clean code, minimalism, small parts, expressive variables and functions. The beauty of this WebExtention is its minimalist : **Do a single thing, but do it well.**
@@ -30,6 +31,7 @@ Tests
 -----
 Well, I didn't write early the tests, because I started that project in a 2014 afternoon, as toying. If you can write test, I'll be happy. So actually, this is a manual check :
 
+ - Test mainly of Firefox. Chrome compliance is for later.
  - Watch out with parameters : try to change style, opacity, size, context menu entry and shortkey.
  - Here is what to check on each scenarii, do it twice :
    - Click on the toolbar button

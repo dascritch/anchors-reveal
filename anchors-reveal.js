@@ -10,7 +10,7 @@
  */
 
 
-export async function switch_layer(noIdMessage) {
+export async function switch_layer() {
 	/*  /!\ Important : as this function will be inserted serialized, no external value or function must be used */
 
 	let count_tags = 0;
@@ -33,7 +33,7 @@ export async function switch_layer(noIdMessage) {
 			pointer-events : none;
 		}
 
-		div a, .ClassicalYellow a {
+		.undefined a, .ClassicalYellow a {
 			background-color : yellow;
 			color : black;
 		}
@@ -55,32 +55,64 @@ export async function switch_layer(noIdMessage) {
 
 		a {
 			position : absolute ;
-			font-family : sans-serif ;
-			font-size : 14px ;
+			font-family : sans-serif;
+			font-size : 14px;
 			font-weight : bold;
-			padding : 4px ;
-			border : 1px black solid ;
-			opacity : 0.7 ;
+			padding : 4px;
+			border : 1px black solid;
 			pointer-events : auto;
+		}
+		.transparent a {
+			opacity : 0.7;
 		}
 		a:hover {
 			opacity : 1 ;
-		}`;
+		}
+		.size-1 a {
+			font-size : 12px;
+		}
+		.size-2 a {
+			font-size : 14px;
+		}
+		.size-3 a {
+			font-size : 16px;
+		}
+		.size-4 a {
+			font-size : 18px;
+		}
+		.size-5 a {
+			font-size : 20px;
+		}
+	`;
 
 	let valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
 	let container = document.querySelector(LAYOUT_ID);
-	let theme;
+	let style;
 
 	function build_layer() {
 		function reveal_for_element(element) {
-			let id = element.id || element.name;
+			const {id} = element;
 			if (
 				valid_id.test(id) // not malicious ?
 			) {
 				let rect = element.getBoundingClientRect();
+
+
 				let x = rect.left + window.scrollX;
 				let y = rect.top + window.scrollY;
-				if ((x != 0) || (y != 0)) {
+
+				// try to NOT count undisplayable or irrelevant tags
+				const insertable = ((x != 0) || (y != 0)) &&  // ones at top
+					// Youtube uses a lot of HTML "visibles"  tags with zero w or h
+				(rect.width > 0) && (rect.height > 0) &&
+					// Hide hidden elements, but also svg elements as path or mask, or revealable (<details>)
+				(element.hidden === false) &&
+					// this does a lot of tests, but it's not bulletproof. b.ex, <svg:linearGradent> respond "true" improperly
+					(element.checkVisibility({contentVisibilityAuto:true, opacityProperty:true, visibilityProperty:true})) &&
+					(element.hidden === false) ;
+				//window.console.log({element, id, insertable, rect, x,y , hidden : element.hidden , display : element.style.display, check: element.checkVisibility({contentVisibilityAuto:true, opacityProperty:true, visibilityProperty:true}) })
+				if (insertable) {
+
 					// not on top, and really visible
 					let tag = document.createElement('a');
 					tag.href = '#'+id;
@@ -107,17 +139,23 @@ export async function switch_layer(noIdMessage) {
 		shadow.appendChild(style_element);
 
 		const div = document.createElement('div');
-		div.className = theme;
+		div.className = style.theme;
+		if (style.transparent) {
+			div.classList.add('transparent');
+		}
+		div.classList.add(`size-${style.size ?? 2}`);
 		shadow.appendChild(div);
 
-		Array.from(document.querySelectorAll('[id], a[name]')).
+		Array.from(document.querySelectorAll('[id]')).
 			forEach(reveal_for_element);
 
+		
 		if (count_tags === 0) {
-			on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
-			// message on screen : "no id, try contextual menu “copy to highlight” instead"
-			let tag = document.createElement('a');
-			tag.innerText = noIdMessage;
+			const noid_message = browser.i18n.getMessage('noIdMessage');
+			on_error(noid_message);
+			const tag = document.createElement('a');
+			tag.innerText = noid_message;
+			const dir = document.querySelector('anchors-reveal').shadowRoot.querySelector('div');
 			div.appendChild(tag);
 		}
 		displayed = true;
@@ -127,14 +165,14 @@ export async function switch_layer(noIdMessage) {
 		window.console.error(`Error in anchors-reveal extension: ${error}`);
 	}
 
-	function on_got_parameters(result) {
-		theme = result.theme;
+	function on_got_parameters(getting_storage) {
+		style = getting_storage;
 		build_layer();
 		window.removeEventListener('resize', destroy, false);
 	}
 
 	async function display_layer() {
-		let getting_storage = await browser.storage.local.get('theme');
+		const getting_storage = await browser.storage.local.get();
 		on_got_parameters(getting_storage);
 	}
 
@@ -151,7 +189,7 @@ export async function switch_layer(noIdMessage) {
 	return {
 		count_tags,
 		displayed,
-		theme
+		theme : style?.theme
 	};
 }
 

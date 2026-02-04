@@ -19,7 +19,7 @@
 	},
 
 	 "themeParameterDescription": {
-		"message": "Choose a theme color for the <del>sticky notes</del> revealed anchors",
+		"message": "Choose a theme color for the revealed anchors",
 		"description": "Theme chooser description."
 	},
 
@@ -40,12 +40,45 @@
 		"message": "Gothic Addict",
 		"description": "Theme description for value GothicAddict."
 	},
-
-
-	"cumbersomeParametersDescription": {
-		"message": "Really optionnal so-called features",
-		"description": "Cluncky options description."
+	"labelsAreTransparent": {
+		"message": "Labels are transparent",
+		"description": "Choose if labels are opaque or transparent"
 	},
+	"labelSize": {
+		"message": "Labels size",
+		"description": "Choose size for the labels"
+	},
+	"labelSizeSmall": {
+		"message": "small",
+		"description": "Example of a small size for the labels"
+	},
+	"labelSizeBig": {
+		"message": "big",
+		"description": "Example of a big size for the labels"
+	},
+
+	"keyboardParameterDescription": {
+		"message": "Keyboard",
+		"description": "Keyboard related options description."
+	},
+	"keyboardShortcut": {
+		"message": "Shortcut",
+		"description": "Keyboard shortcut."
+	},
+	"byDefault": {
+		"message": "By default",
+		"description": "Default choice label"
+	},
+	"clickHereToChange": {
+		"message": "Click here to change",
+		"description": "Button for changing shortcut."
+	},
+
+	"pointerParameterDescription": {
+		"message": "Pointer",
+		"description": "Pointer related options description."
+	},
+	
 	"checkContextMenu": {
 		"message": "Add a contextual menu entry",
 		"description": "Option to add a context menu entry"

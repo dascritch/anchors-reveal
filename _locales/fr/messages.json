@@ -14,7 +14,7 @@
 	},
 
 	"themeParameterDescription": {
-		"message": "Choisissez un thème graphique pour les <del>notes autocollantes</del> ancres révélées",
+		"message": "Choisissez un thème graphique pour les ancres révélées",
 		"description": "Theme chooser description."
 	},
 	"noIdMessage": {
@@ -38,11 +38,45 @@
 		"message": "Gothique pratiquant",
 		"description": "Theme description for value GothicAddict."
 	},
-
-	"cumbersomeParametersDescription": {
-		"message": "Options vraiment très optionnelles",
-		"description": "Cluncky options description."
+	"labelsAreTransparent": {
+		"message": "Les étiquettes sont transparentes",
+		"description": "Choose if labels are opaque or transparent"
 	},
+	"labelSize": {
+		"message": "Taille de étiquettes",
+		"description": "Choose size for the labels"
+	},
+
+	"keyboardParameterDescription": {
+		"message": "Clavier",
+		"description": "Keyboard related options description."
+	},
+	"keyboardShortcut": {
+		"message": "Raccourci",
+		"description": "Keyboard shortcut."
+	},
+	"byDefault": {
+		"message": "Par défaut",
+		"description": "Default choice label"
+	},
+	"clickHereToChange": {
+		"message": "Cliquez ici pour changer",
+		"description": "Button for changing shortcut."
+	},
+	"labelSizeSmall": {
+		"message": "petit",
+		"description": "Example of a small size for the labels"
+	},
+	"labelSizeBig": {
+		"message": "grand",
+		"description": "Example of a big size for the labels"
+	},
+
+	"pointerParameterDescription": {
+		"message": "Pointeur",
+		"description": "Pointer related options description."
+	},
+
 	"checkContextMenu": {
 		"message": "Ajoute une entrée au menu contextuel",
 		"description": "Option to add a context menu entry"

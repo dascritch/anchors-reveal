@@ -1,5 +1,4 @@
-import { menu_id, THEMES, default_theme } from './lib.js';
-import { switch_layer } from './anchors-reveal.js';
+import { menu_id, THEMES, default_theme, listener, install_event_act, install_context_menu } from './lib.js';
 
 if (typeof browser === 'undefined') {
 	// Polyfill "browser" to "chrome" for chromium engines.
@@ -7,68 +6,11 @@ if (typeof browser === 'undefined') {
 	globalThis.browser = chrome;
 }
 
-function feedback(output) {
-
-	if ((output.length < 1) || (output[0] === undefined)) {
-		throw Error(`Anchors-reveal had an issue : ${output}`);
-		return;
-	}
-	console.info({output})
-
-	const {result, error} = output[0];
-
-	if (error) {
-		throw Error(`Anchors-reveal had an error : ${error}`);
-		return
-	}
-
-	let theme = THEMES[result.theme ?? default_theme];
-	browser.action.setBadgeText({ text:
-		result.displayed ? String(result.count_tags) : null
-	});
-	browser.action.setBadgeBackgroundColor({ color:theme.background });
-	browser.action.setBadgeTextColor({ color:theme.color });
-}
-
-function denied_action(e) {
-	console.error(`Anchors-reveal action is not available here: ${e}`)
-	// may be trigerred by a security feature
-	browser.action.setBadgeBackgroundColor({ color:'transparent' });
-	browser.action.setBadgeTextColor({ color:'red' });
-	browser.action.setBadgeText({ text: '⛔'});
-}
-
-function listener(tab, _) {
-
-	browser.scripting.executeScript({
-		func	: switch_layer,
-		args	: [browser.i18n.getMessage('noIdMessage')],
-		target	: { tabId: tab.id },
-		world	: 'ISOLATED'
-	}).then(feedback).catch(denied_action);
-}
-
-function menu_listener(_, tab) {
-	// only one menu entry, no need to check
-	listener(tab);
-}
-
-function install_event_act(event, act) {
-	if (event.hasListener(act)) {
-		event.removeListener(act)
-	}
-	event.addListener(act);
-}
 
 async function on_installed() {
 	install_event_act(browser.action.onClicked, listener);
-	browser.contextMenus.remove(menu_id).catch(e => {});
-
-	browser.contextMenus.create({
-		id: menu_id,
-		title: browser.i18n.getMessage('buttonDescription'),
-	});
-	install_event_act(browser.contextMenus.onClicked, menu_listener);
+	install_context_menu();
+	
 }
 
 on_installed();

@@ -4,12 +4,12 @@ Anchors reveal
 
 To install latest stable and validated version, [go directly to its Mozilla addon page](https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/)
 
-Author :  [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
+Author : [Xavier "dascritch" Mouton-Dubosc](http://dascritch.com)
 Portage to WebExtension and some bug corrections : [Makyen](https://github.com/makyen) and [joggee-fr](https://github.com/joggee-fr)
 
 Icon taken from the [default KDE](http://kde.org) theme [Oxygen by the Oxygen Team](http://techbase.kde.org/Projects/Oxygen)
 
-Version : 1.3
+Version : 1.4
 
 
 Reference links
@@ -81,4 +81,5 @@ Keeping in touch
 ----------------
 * professional : <http://dascritch.com>
 * blog : <http://dascritch.net>
-* twitter : [@dascritch](https://twitter.com/dascritch)
+* bluesky : [@dascritch.net](https://bsky.app/profile/dascritch.net)
+* mastodon : [@dascritch@mast.eu.org](https://mast.eu.org/@dascritch)

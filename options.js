@@ -52,7 +52,7 @@ function saveOptions(event) {
 }
 
 function onError(error) {
-	console.log(`Error: ${error}`);
+	console.error(`Error: ${error}`);
 }
 
 function warmup() {

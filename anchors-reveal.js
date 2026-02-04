@@ -10,7 +10,7 @@
  */
 
 
-export async function switch_layer(noIdMessage) {
+export async function switch_layer() {
 	/*  /!\ Important : as this function will be inserted serialized, no external value or function must be used */
 
 	let count_tags = 0;
@@ -115,10 +115,11 @@ export async function switch_layer(noIdMessage) {
 
 		
 		if (count_tags === 0) {
-			on_error('Unnamed puppy : Not a single ID element in this page. Bad dog, no biscuit.');
-			// message on screen : "no id, try contextual menu “copy to highlight” instead"
-			let tag = document.createElement('a');
-			tag.innerText = noIdMessage;
+			const noid_message = browser.i18n.getMessage('noIdMessage');
+			on_error(noid_message);
+			const tag = document.createElement('a');
+			tag.innerText = noid_message;
+			const dir = document.querySelector('anchors-reveal').shadowRoot.querySelector('div');
 			div.appendChild(tag);
 		}
 		displayed = true;

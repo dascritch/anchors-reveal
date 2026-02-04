@@ -7,14 +7,22 @@ if (typeof browser === 'undefined') {
 	globalThis.browser = chrome;
 }
 
+
+let target_tab_id ;
+
+/** TODO
+ * résoudre le problème de comptage sur Youtube
+ * passer une partie du style en vriable pour la remonter en lib.js
+ * passer en ws
+ * https://github.com/mozilla/webextension-polyfill
+**/
+
 function feedback(output) {
 
 	if ((output.length < 1) || (output[0] === undefined)) {
 		throw Error(`Anchors-reveal had an issue : ${output}`);
 		return;
 	}
-	console.info({output})
-
 	const {result, error} = output[0];
 
 	if (error) {
@@ -39,11 +47,10 @@ function denied_action(e) {
 }
 
 function listener(tab, _) {
-
+	target_tab_id = tab.id;
 	browser.scripting.executeScript({
 		func	: switch_layer,
-		args	: [browser.i18n.getMessage('noIdMessage')],
-		target	: { tabId: tab.id },
+		target	: { tabId: target_tab_id },
 		world	: 'ISOLATED'
 	}).then(feedback).catch(denied_action);
 }

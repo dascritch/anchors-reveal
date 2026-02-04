@@ -42,6 +42,10 @@
 		"message": "Les étiquettes sont transparentes",
 		"description": "Choose if labels are opaque or transparent"
 	},
+	"labelSize": {
+		"message": "Taille de étiquettes",
+		"description": "Choose size for the labels"
+	},
 
 	"keyboardParameterDescription": {
 		"message": "Clavier",
@@ -58,6 +62,14 @@
 	"clickHereToChange": {
 		"message": "Cliquez ici pour changer",
 		"description": "Button for changing shortcut."
+	},
+	"labelSizeSmall": {
+		"message": "petit",
+		"description": "Example of a small size for the labels"
+	},
+	"labelSizeBig": {
+		"message": "grand",
+		"description": "Example of a big size for the labels"
 	},
 
 	"pointerParameterDescription": {

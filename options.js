@@ -26,9 +26,18 @@ function restoreOptions() {
 		}
 	}
 
+	function setCurrentSizeChoice({size}) {
+		size ??= 2;
+		form_parameters.querySelector('input[name="size"]').value = size;
+		const cl = form_parameters.querySelector('#themes').classList;
+		cl.remove('size-1','size-2','size-3','size-4','size-5');
+		cl.add(`size-${size}`);
+	}
+
 	browser.storage.local.get('theme').then(setCurrentThemeChoice, onError);
 	browser.storage.local.get('menu').then(setCurrentMenuChoice, onError);
 	browser.storage.local.get('transparent').then(setCurrentTransparentChoice, onError);
+	browser.storage.local.get('size').then(setCurrentSizeChoice, onError);
 }
 
 function saveOptions(event) {
@@ -37,6 +46,7 @@ function saveOptions(event) {
 		theme: form_parameters.theme.value,
 		menu: form_parameters.menu.checked,
 		transparent: form_parameters.transparent.checked,
+		size: form_parameters.size.value,
 	});
 	restoreOptions();
 }
@@ -46,7 +56,6 @@ function onError(error) {
 }
 
 function warmup() {
-	console.log(1)
 	form_parameters = document.getElementById('anchors-reveal-parameters');
 	form_parameters.querySelector('#shortcut button').addEventListener('click', _ => browser.commands.openShortcutSettings());
 
@@ -70,7 +79,6 @@ function warmup() {
 
 	restoreOptions();
 	form_parameters.addEventListener('change', saveOptions);
-	console.log(2)
 }
 
 warmup();

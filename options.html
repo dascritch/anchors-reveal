@@ -24,7 +24,7 @@
 		<style scoped>
 			#themes span[class] {
 				font-family : sans-serif ;
-				font-size : 14px ;
+				/*font-size : 14px; */
 				font-weight : bold;
 				padding : 4px ;
 				border : 1px black solid ;
@@ -35,6 +35,22 @@
 			}
 			#themes label:hover span {
 				opacity : 1;
+			}
+
+			.size-1 span[class] {
+				font-size : 12px;
+			}
+			.size-2 span[class] {
+				font-size : 14px;
+			}
+			.size-3 span[class] {
+				font-size : 16px;
+			}
+			.size-4 span[class] {
+				font-size : 18px;
+			}
+			.size-5 span[class] {
+				font-size : 20px;
 			}
 
 			.ClassicalYellow {
@@ -100,6 +116,16 @@
 				<label>
 					<input type="checkbox" name="transparent" value="1" />
 					<span>{labelsAreTransparent}</span>
+				</label>
+			</p>
+			<p>
+				<label>
+					<span>{labelSize}</span> :
+
+
+					<span>{labelSizeSmall}</span>
+					<input type="range" name="size" min="1" max="5" />
+					<span>{labelSizeBig}</span>
 				</label>
 			</p>
 		</fieldset>

@@ -67,7 +67,23 @@ export async function switch_layer() {
 		}
 		a:hover {
 			opacity : 1 ;
-		}`;
+		}
+		.size-1 a {
+			font-size : 12px;
+		}
+		.size-2 a {
+			font-size : 14px;
+		}
+		.size-3 a {
+			font-size : 16px;
+		}
+		.size-4 a {
+			font-size : 18px;
+		}
+		.size-5 a {
+			font-size : 20px;
+		}
+	`;
 
 	let valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
 	let container = document.querySelector(LAYOUT_ID);
@@ -126,6 +142,7 @@ export async function switch_layer() {
 		if (style.transparent) {
 			div.classList.add('transparent');
 		}
+		div.classList.add(`size-${style.size ?? 2}`);
 		shadow.appendChild(div);
 
 		Array.from(document.querySelectorAll('[id]')).

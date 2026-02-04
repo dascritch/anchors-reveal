@@ -39,10 +39,15 @@
 		"description": "Theme description for value GothicAddict."
 	},
 
-	"cumbersomeParametersDescription": {
-		"message": "Options vraiment très optionnelles",
-		"description": "Cluncky options description."
+	"keyboardParameterDescription": {
+		"message": "Clavier",
+		"description": "Keyboard related options description."
 	},
+	"pointerParameterDescription": {
+		"message": "Pointeur",
+		"description": "Pointer related options description."
+	},
+
 	"checkContextMenu": {
 		"message": "Ajoute une entrée au menu contextuel",
 		"description": "Option to add a context menu entry"

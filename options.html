@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<script defer async src="./options.js"></script>
+	<script defer async type="module" src="./options.js"></script>
 	<style>
 		/* re use Firefox theme */
 		:root {
@@ -22,7 +22,7 @@
 
 	<form id="anchors-reveal-parameters">
 		<fieldset id="themes">
-			<legend>Choose a theme color for the <del>sticky notes</del> revealed anchors</legend>
+			<legend>{themeParameterDescription}</legend>
 
 			<style scoped>
 				#themes span {
@@ -98,17 +98,17 @@
 		</fieldset>
 
 		<fieldset>
-			<legend>Keyboard</legend>
+			<legend>{keyboardParameterDescription}</legend>
 			<p id="shortcut">
 				Shortcut : By default <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> <button type="button">click here to change</button>
 			</p>
 		</fieldset>
 
 		<fieldset>
-			<legend>Not so useful features</legend>
+			<legend>{pointerParameterDescription}</legend>
 			<p>
 				<label>
-					<input type="checkbox" name="menu" value="1" checked="checked" disabled="disabled" />
+					<input type="checkbox" name="menu" value="1" />
 					<span>Add a contextual menu entry</span>
 				</label>
 			</p>

@@ -44,8 +44,21 @@
 
 	"keyboardParameterDescription": {
 		"message": "Keyboard",
-		"description": "Keyboard relater options description."
+		"description": "Keyboard related options description."
 	},
+	"keyboardShortcut": {
+		"message": "Shortcut",
+		"description": "Keyboard shortcut."
+	},
+	"byDefault": {
+		"message": "By default",
+		"description": "Default choice label"
+	},
+	"clickHereToChange": {
+		"message": "Click here to change",
+		"description": "Button for changing shortcut."
+	},
+
 	"pointerParameterDescription": {
 		"message": "Pointer",
 		"description": "Pointer related options description."

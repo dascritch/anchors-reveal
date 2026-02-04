@@ -49,9 +49,12 @@ function restoreOptions() {
 
 	form_parameters.addEventListener('input', saveOptions);
 
-
-	for (const legend of form_parameters.querySelectorAll('legend')) {
-		legend.innerText = browser.i18n.getMessage(legend.innerText.replace('{','').replace('}',''));
+	const isLocaleLabel = /^{[a-zA-Z0-9]+}$/;
+	for (const legend of form_parameters.querySelectorAll('*')) {
+		if (isLocaleLabel.test(legend.innerText)) {
+			// weak templating
+			legend.innerText = browser.i18n.getMessage(legend.innerText.replace('{','').replace('}',''));
+		}
 	}
 
 

@@ -43,6 +43,19 @@
 		"message": "Clavier",
 		"description": "Keyboard related options description."
 	},
+	"keyboardShortcut": {
+		"message": "Raccourci",
+		"description": "Keyboard shortcut."
+	},
+	"byDefault": {
+		"message": "Par défaut",
+		"description": "Default choice label"
+	},
+	"clickHereToChange": {
+		"message": "Cliquez ici pour changer",
+		"description": "Button for changing shortcut."
+	},
+
 	"pointerParameterDescription": {
 		"message": "Pointeur",
 		"description": "Pointer related options description."

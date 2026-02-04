@@ -78,9 +78,22 @@ export async function switch_layer() {
 				valid_id.test(id) // not malicious ?
 			) {
 				let rect = element.getBoundingClientRect();
+
+
 				let x = rect.left + window.scrollX;
 				let y = rect.top + window.scrollY;
-				if ((x != 0) || (y != 0)) {
+
+				// try to NOT count undisplayable or irrelevant tags
+				const insertable = ((x != 0) || (y != 0)) &&  // ones at top
+					// Youtube uses a lot of HTML "visibles"  tags with zero w or h
+				(rect.width > 0) && (rect.height > 0) &&
+					// Hide hidden elements, but also svg elements as path or mask, or revealable (<details>)
+				(element.hidden === false) &&
+					// this does a lot of tests, but it's not bulletproof. b.ex, <svg:linearGradent> respond "true" improperly
+					(element.checkVisibility({contentVisibilityAuto:true, opacityProperty:true, visibilityProperty:true})) &&
+					(element.hidden === false) ;
+				//window.console.log({element, id, insertable, rect, x,y , hidden : element.hidden , display : element.style.display, check: element.checkVisibility({contentVisibilityAuto:true, opacityProperty:true, visibilityProperty:true}) })
+				if (insertable) {
 					// not on top, and really visible
 					let tag = document.createElement('a');
 					tag.href = '#'+id;

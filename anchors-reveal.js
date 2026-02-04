@@ -55,12 +55,12 @@ export async function switch_layer(noIdMessage) {
 
 		a {
 			position : absolute ;
-			font-family : sans-serif ;
-			font-size : 14px ;
+			font-family : sans-serif;
+			font-size : 14px;
 			font-weight : bold;
-			padding : 4px ;
-			border : 1px black solid ;
-			opacity : 0.7 ;
+			padding : 4px;
+			border : 1px black solid;
+			opacity : 0.7;
 			pointer-events : auto;
 		}
 		a:hover {

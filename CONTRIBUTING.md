@@ -11,6 +11,7 @@ If you are a developer
 ----------------------
 
  - We work mainly for Firefox (MV3) first. Creation of a Chrome version is to do next.
+ - So [the main documentation I refer is MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/What_are_WebExtensions) . Beware : [Chrome pages are sometimes contraditing Mozilla](https://developer.chrome.com/docs/extensions?hl=en), as Chrome is locking the Webextensions domains, and also the browser lacks some implementations.
  - Clone the project, use the `dev` branch and merge into it
  - Always prefer any W3C standards instead of create something.
  - Think about clean code, minimalism, small parts, expressive variables and functions. The beauty of this WebExtention is its minimalist : **Do a single thing, but do it well.**

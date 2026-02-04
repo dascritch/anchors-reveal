@@ -11,8 +11,8 @@ if (typeof browser === 'undefined') {
 let target_tab_id ;
 
 /** TODO
- * résoudre le problème de comptage sur Youtube
- * passer une partie du style en vriable pour la remonter en lib.js
+ * remettre le menu switch off
+ * passer une partie du style en variable pour la remonter en lib.js
  * passer en ws
  * https://github.com/mozilla/webextension-polyfill
 **/
@@ -49,7 +49,7 @@ function denied_action(e) {
 function listener(tab, _) {
 	target_tab_id = tab.id;
 	browser.scripting.executeScript({
-		func	: switch_layer,
+		func    : switch_layer,
 		target	: { tabId: target_tab_id },
 		world	: 'ISOLATED'
 	}).then(feedback).catch(denied_action);

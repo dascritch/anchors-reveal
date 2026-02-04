@@ -33,7 +33,7 @@ export async function switch_layer() {
 			pointer-events : none;
 		}
 
-		div a, .ClassicalYellow a {
+		.undefined a, .ClassicalYellow a {
 			background-color : yellow;
 			color : black;
 		}

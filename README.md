@@ -64,6 +64,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 Versions
 --------
+* February 2026 : 1.4, Some aspects for the labels are parametrables. Thanks [Korb](https://github.com/Korb) on suggestions.
 * February 2026 : 1.3, [Manifest v3](https://github.com/dascritch/anchors-reveal/issues/31), badge on icon, message on no ID, some refacto. Thanks [Joggee](https://github.com/joggee-fr) for helping and [Korb](https://github.com/Korb) on suggestions.
 * February 2019 : 1.1, ported in WebComponent. Will help to isolate, keep page undisturbed
 * August 2017 : 0.8, now ported in WebExtension, thanks to [Makyen](https://github.com/makyen) ans everyone in the community

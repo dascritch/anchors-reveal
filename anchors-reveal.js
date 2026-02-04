@@ -112,6 +112,7 @@ export async function switch_layer() {
 					(element.hidden === false) ;
 				//window.console.log({element, id, insertable, rect, x,y , hidden : element.hidden , display : element.style.display, check: element.checkVisibility({contentVisibilityAuto:true, opacityProperty:true, visibilityProperty:true}) })
 				if (insertable) {
+
 					// not on top, and really visible
 					let tag = document.createElement('a');
 					tag.href = '#'+id;
@@ -171,7 +172,8 @@ export async function switch_layer() {
 	}
 
 	async function display_layer() {
-		browser.storage.local.get().then(on_got_parameters);
+		const getting_storage = await browser.storage.local.get();
+		on_got_parameters(getting_storage);
 	}
 
 	function destroy() {

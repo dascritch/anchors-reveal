@@ -1,5 +1,4 @@
 import { menu_id, THEMES, default_theme, listener, install_event_act, install_context_menu } from './lib.js';
-import { switch_layer } from './anchors-reveal.js';
 
 if (typeof browser === 'undefined') {
 	// Polyfill "browser" to "chrome" for chromium engines.

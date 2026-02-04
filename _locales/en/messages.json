@@ -40,6 +40,10 @@
 		"message": "Gothic Addict",
 		"description": "Theme description for value GothicAddict."
 	},
+	"labelsAreTransparent": {
+		"message": "Labels are transparent",
+		"description": "Choose if labels are opaque or transparent"
+	},
 
 
 	"keyboardParameterDescription": {

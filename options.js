@@ -1,18 +1,7 @@
-import {THEMES, install_context_menu} from './lib.js';
+import {THEMES, install_context_menu, transparent_class} from './lib.js';
 
 
 let form_parameters;
-
-
-function saveOptions(event) {
-	event.preventDefault();
-	browser.storage.local.set({
-		theme: form_parameters.theme.value,
-		menu: form_parameters.menu.checked,
-		//sidebar: form_parameters.sidebar.checked
-	});
-	install_context_menu();
-}
 
 function restoreOptions() {
 
@@ -24,30 +13,42 @@ function restoreOptions() {
 	function setCurrentMenuChoice(result) {
 		const is_menu = result.menu || false;
 		form_parameters.querySelector('input[name="menu"]').checked = is_menu;
+		install_context_menu();
 	}
 
-	/*
-	function setCurrentSidebarChoice(result) {
-		const is_sidebar = result.sidebar || false;
-		form_parameters.querySelector('input[name="sidebar"]').checked = is_sidebar;
+	function setCurrentTransparentChoice({transparent}) {
+		form_parameters.querySelector('input[name="transparent"]').checked = transparent;
+		const cl = form_parameters.querySelector('#themes').classList;
+		if (transparent) {
+			cl.add(transparent_class);
+		} else {
+			cl.remove(transparent_class);
+		}
 	}
-	*/
-
-	function onError(error) {
-		console.log(`Error: ${error}`);
-	}
-
 
 	browser.storage.local.get('theme').then(setCurrentThemeChoice, onError);
 	browser.storage.local.get('menu').then(setCurrentMenuChoice, onError);
+	browser.storage.local.get('transparent').then(setCurrentTransparentChoice, onError);
+}
 
-	//browser.storage.local.get('sidebar').then(setCurrentSidebarChoice, onError);
+function saveOptions(event) {
+	event.preventDefault();
+	browser.storage.local.set({
+		theme: form_parameters.theme.value,
+		menu: form_parameters.menu.checked,
+		transparent: form_parameters.transparent.checked,
+	});
+	restoreOptions();
+}
 
+function onError(error) {
+	console.log(`Error: ${error}`);
+}
 
+function warmup() {
+	console.log(1)
 	form_parameters = document.getElementById('anchors-reveal-parameters');
-	form_parameters.querySelector('#shortcut button').addEventListener('click', _ => browser.commands.openShortcutSettings())
-
-	form_parameters.addEventListener('input', saveOptions);
+	form_parameters.querySelector('#shortcut button').addEventListener('click', _ => browser.commands.openShortcutSettings());
 
 	const isLocaleLabel = /^{[a-zA-Z0-9]+}$/;
 	for (const legend of form_parameters.querySelectorAll('*')) {
@@ -56,7 +57,6 @@ function restoreOptions() {
 			legend.innerText = browser.i18n.getMessage(legend.innerText.replace('{','').replace('}',''));
 		}
 	}
-
 
 	Array.from(form_parameters.querySelectorAll('input[type="radio"]')).
 		forEach(function(element){
@@ -68,11 +68,10 @@ function restoreOptions() {
 		}
 	);
 
-	form_parameters.querySelector('input[name="menu"] + span').innerText = browser.i18n.getMessage('checkContextMenu');
-	// form_parameters.querySelector('input[name="sidebar"] + span').innerText = browser.i18n.getMessage('checkSidebar');
-
-
+	restoreOptions();
+	form_parameters.addEventListener('change', saveOptions);
+	console.log(2)
 }
 
-restoreOptions();
-document.addEventListener('DOMContentLoaded', restoreOptions);
+warmup();
+document.addEventListener('DOMContentLoaded', warmup);

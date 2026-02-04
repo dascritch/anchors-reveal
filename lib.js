@@ -1,5 +1,7 @@
 // ES6 import modules doesn't seems working in WebExtension context :/
 
+import { switch_layer } from './anchors-reveal.js';
+
 export const menu_id = 'anchors-reveal';
 
 export const THEMES = {
@@ -75,6 +77,7 @@ function menu_listener(_, tab) {
 }
 
 export const default_theme = 'ClassicalYellow';
+export const transparent_class = 'transparent';
 
 export function install_event_act(event, act) {
 	if (event.hasListener(act)) {

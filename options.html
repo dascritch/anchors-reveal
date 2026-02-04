@@ -21,56 +21,57 @@
 <body>
 
 	<form id="anchors-reveal-parameters">
+		<style scoped>
+			#themes span[class] {
+				font-family : sans-serif ;
+				font-size : 14px ;
+				font-weight : bold;
+				padding : 4px ;
+				border : 1px black solid ;
+				pointer-events : auto;
+			}
+			.transparent span[class] {
+				opacity : 0.7 ;
+			}
+			#themes label:hover span {
+				opacity : 1;
+			}
+
+			.ClassicalYellow {
+				background-color : yellow;
+				color : black;
+			}
+
+			.LightBlue {
+				background-color : #aaf;
+				color : black;
+			}
+
+			.WhitePaper {
+				background-color : white;
+				color : black;
+			}
+
+			.GothicAddict {
+				background-color : black;
+				color : white;
+			}
+
+			#shortcut kbd {
+				display : inline-block;
+				margin : 4px;
+				padding : 4px;
+				color : var(--text-color);
+				border: var(--text-color) 2px;
+				border-radius: 2px;
+				text-decoration: none;
+
+			}
+
+		</style>
+
 		<fieldset id="themes">
 			<legend>{themeParameterDescription}</legend>
-
-			<style scoped>
-				#themes span {
-					font-family : sans-serif ;
-					font-size : 14px ;
-					font-weight : bold;
-					padding : 4px ;
-					border : 1px black solid ;
-					opacity : 0.7 ;
-					pointer-events : auto;
-				}
-				#themes label:hover span {
-					opacity : 1;
-				}
-
-				.ClassicalYellow {
-					background-color : yellow;
-					color : black;
-				}
-
-				.LightBlue {
-					background-color : #aaf;
-					color : black;
-				}
-
-				.WhitePaper {
-					background-color : white;
-					color : black;
-				}
-
-				.GothicAddict {
-					background-color : black;
-					color : white;
-				}
-
-				#shortcut kbd {
-					display : inline-block;
-					margin : 4px;
-					padding : 4px;
-					color : var(--text-color);
-					border: var(--text-color) 2px;
-					border-radius: 2px;
-					text-decoration: none;
-
-				}
-
-			</style>
-
 			<p>
 				<label>
 					<input type="radio" name="theme" value="ClassicalYellow" />
@@ -95,6 +96,12 @@
 					<span  class="GothicAddict">Gothic addict</span>
 				</label>
 			</p>
+			<p>
+				<label>
+					<input type="checkbox" name="transparent" value="1" />
+					<span>{labelsAreTransparent}</span>
+				</label>
+			</p>
 		</fieldset>
 
 		<fieldset>
@@ -109,18 +116,9 @@
 			<p>
 				<label>
 					<input type="checkbox" name="menu" value="1" />
-					<span>Add a contextual menu entry</span>
+					<span>{checkContextMenu}</span>
 				</label>
 			</p>
-		
-			<!--
-			<p>
-				<label>
-					<input type="checkbox" name="sidebar" value="1" />
-					<span>Open the sidebar</span>
-				</label>
-			</p>
-			-->
 		
 		</fieldset>
 

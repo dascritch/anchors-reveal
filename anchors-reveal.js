@@ -60,8 +60,10 @@ export async function switch_layer() {
 			font-weight : bold;
 			padding : 4px;
 			border : 1px black solid;
-			opacity : 0.7;
 			pointer-events : auto;
+		}
+		.transparent a {
+			opacity : 0.7;
 		}
 		a:hover {
 			opacity : 1 ;
@@ -69,7 +71,7 @@ export async function switch_layer() {
 
 	let valid_id = /^[a-zA-Z0-9\-\_\.]+$/;
 	let container = document.querySelector(LAYOUT_ID);
-	let theme;
+	let style;
 
 	function build_layer() {
 		function reveal_for_element(element) {
@@ -120,7 +122,10 @@ export async function switch_layer() {
 		shadow.appendChild(style_element);
 
 		const div = document.createElement('div');
-		div.className = theme;
+		div.className = style.theme;
+		if (style.transparent) {
+			div.classList.add('transparent');
+		}
 		shadow.appendChild(div);
 
 		Array.from(document.querySelectorAll('[id]')).
@@ -142,15 +147,14 @@ export async function switch_layer() {
 		window.console.error(`Error in anchors-reveal extension: ${error}`);
 	}
 
-	function on_got_parameters(result) {
-		theme = result.theme;
+	function on_got_parameters(getting_storage) {
+		style = getting_storage;
 		build_layer();
 		window.removeEventListener('resize', destroy, false);
 	}
 
 	async function display_layer() {
-		let getting_storage = await browser.storage.local.get('theme');
-		on_got_parameters(getting_storage);
+		browser.storage.local.get().then(on_got_parameters);
 	}
 
 	function destroy() {
@@ -166,7 +170,7 @@ export async function switch_layer() {
 	return {
 		count_tags,
 		displayed,
-		theme
+		theme : style?.theme
 	};
 }
 

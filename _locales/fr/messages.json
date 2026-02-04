@@ -38,6 +38,10 @@
 		"message": "Gothique pratiquant",
 		"description": "Theme description for value GothicAddict."
 	},
+	"labelsAreTransparent": {
+		"message": "Les étiquettes sont transparentes",
+		"description": "Choose if labels are opaque or transparent"
+	},
 
 	"keyboardParameterDescription": {
 		"message": "Clavier",

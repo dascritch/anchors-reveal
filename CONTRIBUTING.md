@@ -40,7 +40,7 @@ Well, I didn't write early the tests, because I started that project in a 2014 a
    - Call via the context menu
    - Call via the shortkey, <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> by default
  - The scenarii to checks :
-   - Check on a page you **cannot** insert JS, on Firefox : [The module page](https://addons.mozilla.org/fr/firefox/addon/anchors-reveal/). You should have a FORBIDDEN badge
+   - Check on a page you **cannot** insert JS, on Firefox : [The module page](https://addons.mozilla.org/en-US/firefox/addon/anchors-reveal/). You should have a FORBIDDEN badge
    - Check on a page without any `id=""` tag. [Perdu.com](http://perdu.com) is a good one. You should have a ZERO badged and a message into the page
    - Check on a regular page. [CPU.pm](http://cpu.pm) is a good one, as I maintain it. You should have a number in the badge, with tags in the page
    - Check on a message page with lot of unuseful `id=""` tags. Compage the badged count with the number of tagged in the page. [Youtube.com](http://youtube.com) is a good one. As previously, but confusing different numbers

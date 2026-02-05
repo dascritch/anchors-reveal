@@ -64,12 +64,12 @@ A one liner describing the atomic work. A blank line, then the references to the
 
 
 Example :  https://github.com/dascritch/anchors-reveal/commit/db9a876d94b8e2819b9f1547d5c4101cfdeb11d3
+```
+fix: english localized link
 
-> fix: english localized link
->
-> `README.md`: Fix Link to `addons.mozilla.org` #46
-> https://github.com/dascritch/anchors-reveal/issues/46
-
+`README.md`: Fix Link to `addons.mozilla.org` #46
+https://github.com/dascritch/anchors-reveal/issues/46
+```
 
 Code acceptability
 ------------------

@@ -29,6 +29,18 @@ If you are integrating HTML
  - Be wise : SVG path can be declared as symbols to reuse them.
  - Simplify your path in SVG:`<path d="">` : we don't have 10000 dpi screens yet. Use preferably `viewport="0 0 32 32"`, have only one digit precision after decimal point and reduce number of points if your path.
 
+How to work on Web-Extension in Firefox
+---------------------------------------
+ 1. Go to `about:debugging#/runtime/this-firefox` page,
+ 2. Click on the `Load temporary add-on`,
+ 3. Select the `manifest.json` file of the locally cloned repository,
+ 4. Once loaded click on `Inspect`
+ 5. Use the big `↺` button when you changed the code.
+
+How to work on Web-Extension in Chrome
+--------------------------------------
+(TBD)
+
 Tests
 -----
 Well, I didn't write early the tests, because I started that project in a 2014 afternoon, as toying. If you can write test, I'll be happy. So actually, this is a manual check :
@@ -45,12 +57,19 @@ Well, I didn't write early the tests, because I started that project in a 2014 a
    - Check on a regular page. [CPU.pm](http://cpu.pm) is a good one, as I maintain it. You should have a number in the badge, with tags in the page
    - Check on a message page with lot of unuseful `id=""` tags. Compage the badged count with the number of tagged in the page. [Youtube.com](http://youtube.com) is a good one. As previously, but confusing different numbers
 
-Compilation
------------
+Reference for the commit messages
+---------------------------------
 
-To make the `anchors-reveal.zip` build file, run `./make.sh`. 
+A one liner describing the atomic work. A blank line, then the references to the tickets with both Ticket name nd number then its URL
 
-If you're not working on `master` or `preprod` original branches, try to avoid to commit the .zip file, to avoid conflicts during merge.
+
+Example :  https://github.com/dascritch/anchors-reveal/commit/db9a876d94b8e2819b9f1547d5c4101cfdeb11d3
+
+> fix: english localized link
+>
+> `README.md`: Fix Link to `addons.mozilla.org` #46
+> https://github.com/dascritch/anchors-reveal/issues/46
+
 
 Code acceptability
 ------------------
@@ -65,5 +84,13 @@ Code acceptability
  - Documentation
 
 Some of the ballot-box won't apply on your patch, and you may need help to fullfill some of them. We can help you, the goal is to learn together and understand good practices and standards.
+
+
+Compilation
+-----------
+
+To make the `anchors-reveal.zip` build file, run `./make.sh`. 
+
+If you're not working on `master` or `preprod` original branches, try to avoid to commit the .zip file, to avoid conflicts during merge.
 
 
